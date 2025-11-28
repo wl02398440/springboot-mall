@@ -1,7 +1,7 @@
 package com.sam.springbootmall.service.impl;
 
 import com.sam.springbootmall.dao.ProductDao;
-import com.sam.springbootmall.dao.impl.ProductDaoImpl;
+import com.sam.springbootmall.dto.ProductRequest;
 import com.sam.springbootmall.model.Product;
 import com.sam.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +17,9 @@ public class productServiceImpl implements ProductService {
     @Override
     public Product getProductById(Integer productId) {
         return productDao.getProductById(productId);
+    }
+
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
     }
 }
