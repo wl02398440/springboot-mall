@@ -1,5 +1,6 @@
 package com.sam.springbootmall.service;
 
+import com.sam.springbootmall.constant.ProductCategory;
 import com.sam.springbootmall.dto.ProductRequest;
 import com.sam.springbootmall.model.Product;
 
@@ -15,7 +16,7 @@ public interface ProductService {
 
     void deleteProduct(Integer productId);
 
-    List<Product> getProducts();
+    List<Product> getProducts(ProductCategory category, String search);
 }
 
 
