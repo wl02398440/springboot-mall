@@ -2,6 +2,7 @@ package com.sam.springbootmall.controller;
 
 
 import com.sam.springbootmall.constant.ProductCategory;
+import com.sam.springbootmall.dto.ProductQueryParams;
 import com.sam.springbootmall.dto.ProductRequest;
 import com.sam.springbootmall.model.Product;
 import com.sam.springbootmall.service.ProductService;
@@ -11,9 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class ProduceController {
@@ -26,7 +25,11 @@ public class ProduceController {
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search
             ) {
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
 
