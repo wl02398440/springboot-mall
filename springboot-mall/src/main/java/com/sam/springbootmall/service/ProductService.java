@@ -1,6 +1,5 @@
 package com.sam.springbootmall.service;
 
-import com.sam.springbootmall.constant.ProductCategory;
 import com.sam.springbootmall.dto.ProductQueryParams;
 import com.sam.springbootmall.dto.ProductRequest;
 import com.sam.springbootmall.model.Product;
@@ -8,6 +7,9 @@ import com.sam.springbootmall.model.Product;
 import java.util.List;
 
 public interface ProductService {
+
+    Integer countProduct(ProductQueryParams productQueryParams);
+
 
     Product getProductById(Integer productId);
 
