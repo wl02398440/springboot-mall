@@ -1,7 +1,6 @@
 package com.sam.springbootmall.dao.impl;
 
 
-import com.sam.springbootmall.constant.ProductCategory;
 import com.sam.springbootmall.dao.ProductDao;
 import com.sam.springbootmall.dto.ProductQueryParams;
 import com.sam.springbootmall.dto.ProductRequest;
@@ -39,6 +38,9 @@ public class ProductDaoImpl implements ProductDao {
             sql = sql + " and product_name like :search";
             map.put("search", "%" + productQueryParams.getSearch() + "%");
         }
+
+        sql = sql + " order by " + productQueryParams.getOrderBy() + " " + productQueryParams.getSort();
+
         List<Product> productList =
                 namedParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
         return productList;
@@ -70,7 +72,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     public Integer createProduct(ProductRequest productRequest) {
-        String sql ="INSERT INTO product (product_name, category," +
+        String sql = "INSERT INTO product (product_name, category," +
                 " image_url, price, stock, description, created_date, last_modified_date) " +
                 "VALUES (:productName, :category, :imageUrl, :price, :stock, :description," +
                 ":createdDate, :lastModifiedDate)";
@@ -95,13 +97,14 @@ public class ProductDaoImpl implements ProductDao {
         int productId = keyHolder.getKey().intValue();
         return productId;
     }
+
     @Override
     public Product getProductById(Integer productId) {
 
         String sql = "select product_id,product_name, category, image_url, price," +
                 " stock, description, created_date, last_modified_date from product" +
                 " where product_id = :productId;";
-        Map<String,Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("productId", productId);
         List<Product> productList = namedParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
 
