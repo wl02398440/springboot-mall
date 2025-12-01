@@ -13,7 +13,7 @@ import java.util.Date;
         "price",
         "stock",
         "description",
-        "createTime",
+        "createdDate",
         "lastModifiedDate"
 })
 public class Product {
@@ -25,7 +25,7 @@ public class Product {
     private Integer price;
     private Integer stock;
     private String description;
-    private Date createTime;
+    private Date createdDate;
     private Date lastModifiedDate;
 
     public Integer getProductId() {
@@ -84,12 +84,12 @@ public class Product {
         this.description = description;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Date getLastModifiedDate() {
