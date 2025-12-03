@@ -1,15 +1,13 @@
 package com.sam.springbootmall.controller;
 
 import com.sam.springbootmall.dto.CreateOrderRequest;
+import com.sam.springbootmall.model.Order;
 import com.sam.springbootmall.service.OrderService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OrderController {
@@ -22,7 +20,17 @@ public class OrderController {
                                          @RequestBody @Valid CreateOrderRequest createdOrderRequest) {
         Integer orderId = orderService.createOrder(userId, createdOrderRequest);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderId);
+        Order order = orderService.getOrderById(orderId);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 
+    @GetMapping("/users/{userId}/{orderId}")
+    public ResponseEntity<?> getOrders(@PathVariable Integer userId,
+                                       @PathVariable Integer orderId) {
+        Order order = orderService.getOrderById(orderId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(order);
+
+    }
 }
