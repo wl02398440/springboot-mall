@@ -20,7 +20,8 @@ import java.util.List;
 
 @Validated
 @RestController
-public class ProduceController {
+@CrossOrigin(origins = "*")
+public class ProductController {
 
     @Autowired
     private ProductService productService;

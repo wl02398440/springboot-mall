@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         User user = userDao.getUserByEmail(userRegisterRequest.getEmail());
         if (user != null) {
             log.warn("該email {} 已經被註冊", userRegisterRequest.getEmail());
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "該email已被註冊");
         }
         String hashPassword = DigestUtils.md5DigestAsHex(userRegisterRequest.getPassword().getBytes());
         userRegisterRequest.setPassword(hashPassword);
@@ -39,14 +39,14 @@ public class UserServiceImpl implements UserService {
         User user = userDao.getUserByEmail(userLoginRequest.getEmail());
         if (user == null) {
             log.warn("該email{}未註冊", userLoginRequest.getEmail());
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "該email尚未註冊");
         }
         String hashPassword = DigestUtils.md5DigestAsHex(userLoginRequest.getPassword().getBytes());
         if (user.getPassword().equals(hashPassword)) {
             return user;
         } else{
             log.warn("密碼錯誤");
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "密碼錯誤");
         }
     }
 

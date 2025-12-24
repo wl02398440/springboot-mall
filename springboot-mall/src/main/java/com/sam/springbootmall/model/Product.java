@@ -27,6 +27,15 @@ public class Product {
     private String description;
     private Date createdDate;
     private Date lastModifiedDate;
+    private Integer count = 1;
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer amount) {
+        this.count = count;
+    }
 
     public Integer getProductId() {
         return productId;

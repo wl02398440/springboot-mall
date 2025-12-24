@@ -4,42 +4,88 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="" />
+    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/productMall.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/productMall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/test/java/com/sam/springbootmall/controller/OrderControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/springboot-mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/springboot-mall.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/ProduceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/test/java/com/sam/springbootmall/controller/ProduceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/test/java/com/sam/springbootmall/controller/ProductControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/test/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/test/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/test/resources/schema.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "wl02398440"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;wl02398440&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/wl02398440/springboot-mall.git",
-    "accountId": "6cb5dc31-992f-4c09-85e0-d1a6680dd0c4"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/wl02398440/springboot-mall.git&quot;,
+    &quot;accountId&quot;: &quot;6cb5dc31-992f-4c09-85e0-d1a6680dd0c4&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3635L1wyBdtiTOiRpVWEPe3Iybf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SpringbootMallApplication.executor": "Run",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/user/Desktop/springboot-mall",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -49,6 +95,24 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\js" />
+      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\html" />
+      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\css" />
+      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static" />
+      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\shopdetail" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringbootMallApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="springboot-mall" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sam.springbootmall.SpringbootMallApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -65,6 +129,8 @@
       <option name="presentableId" value="Default" />
       <updated>1764222354681</updated>
       <workItem from="1764222356031" duration="869000" />
+      <workItem from="1766388789202" duration="11390000" />
+      <workItem from="1766468968009" duration="26825000" />
     </task>
     <servers />
   </component>
