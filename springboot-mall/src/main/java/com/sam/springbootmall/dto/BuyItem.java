@@ -1,13 +1,15 @@
 package com.sam.springbootmall.dto;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
 public class BuyItem {
 
     @NotNull
     private Integer productId;
     @NotNull
-    private Integer quantity;
+    private Integer count;
 
 
     public Integer getProductId() {
@@ -18,11 +20,11 @@ public class BuyItem {
         this.productId = productId;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }

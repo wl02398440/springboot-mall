@@ -3,13 +3,41 @@ package com.sam.springbootmall.model;
 public class OrderItem {
 
     private Integer orderItemId;
-    private Integer orderId;
+    private Integer userId;
     private Integer productId;
-    private Integer quantity;
-    private Integer Amount;
+    private Integer count;
+    private Integer amount;
 
     private String productName;
     private String imageUrl;
+    private Integer price;
+    private Integer stock;
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "userId=" + userId +
+                ", productId=" + productId +
+                ", count=" + count +
+                ", amount=" + amount +
+                '}';
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 
     public String getProductName() {
         return productName;
@@ -35,12 +63,12 @@ public class OrderItem {
         this.orderItemId = orderItemId;
     }
 
-    public Integer getOrderId() {
-        return orderId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getProductId() {
@@ -51,19 +79,19 @@ public class OrderItem {
         this.productId = productId;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public Integer getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setAmount(Integer amount) {
-        Amount = amount;
+        this.amount = amount;
     }
 }

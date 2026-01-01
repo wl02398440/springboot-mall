@@ -4,30 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/productMall.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/productMall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot-mall/src/test/java/com/sam/springbootmall/controller/OrderControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/springboot-mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/springboot-mall.iml" afterDir="false" />
+    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="首頁及初步購物車">
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dto/OrderItemQueryParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/shopcart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/shopcart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/shopcart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/constant/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/constant/ProductCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/ProduceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dao/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dto/BuyItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dto/BuyItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/model/OrderItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/test/java/com/sam/springbootmall/controller/ProduceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/test/java/com/sam/springbootmall/controller/ProductControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/test/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/test/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/test/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/rowmapper/OrderItemRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/rowmapper/OrderItemRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/util/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/util/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/productMall.css" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/productMall.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/productMall.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/productMall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +41,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -75,8 +79,8 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth0": "708",
+    "RequestMappingsPanelWidth1": "707",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -91,7 +95,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -102,6 +106,9 @@
       <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\css" />
       <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static" />
       <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\shopdetail" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sam.springbootmall.dto" />
     </key>
   </component>
   <component name="RunManager">
@@ -130,8 +137,24 @@
       <updated>1764222354681</updated>
       <workItem from="1764222356031" duration="869000" />
       <workItem from="1766388789202" duration="11390000" />
-      <workItem from="1766468968009" duration="26825000" />
+      <workItem from="1766468968009" duration="48882000" />
+      <workItem from="1766754254179" duration="144000" />
+      <workItem from="1766896884306" duration="32327000" />
+      <workItem from="1766979717031" duration="17115000" />
+      <workItem from="1767074949689" duration="21673000" />
+      <workItem from="1767110809513" duration="8000" />
+      <workItem from="1767153489301" duration="18581000" />
+      <workItem from="1767242679279" duration="1268000" />
     </task>
+    <task id="LOCAL-00001" summary="首頁及初步購物車">
+      <option name="closed" value="true" />
+      <created>1766564222027</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1766564222027</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,5 +182,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="首頁及初步購物車" />
+    <option name="LAST_COMMIT_MESSAGE" value="首頁及初步購物車" />
   </component>
 </project>

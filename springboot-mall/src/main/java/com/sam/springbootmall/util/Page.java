@@ -1,5 +1,8 @@
 package com.sam.springbootmall.util;
 
+
+import com.sam.springbootmall.model.OrderItem;
+
 import java.util.List;
 
 //@JsonPropertyOrder({

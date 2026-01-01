@@ -1,7 +1,16 @@
 
+//SweetAlert2 icon: 圖示 (success, error, warning, info)
+
 //增加數量
 function plusButton(product){
-    product.count++;
+    if(product.stock > product.count) {
+        product.count++;
+    } else {
+        this.$set(product, 'showStockError', true);
+        setTimeout(() => {
+            this.$set(product, 'showStockError', false);
+        }, 1500);
+    }
 }
 //減少數量
 function subButton(product) {
@@ -9,49 +18,193 @@ function subButton(product) {
         product.count--;
     }
 }
-//刪除商品
-function handledelete(index){
-    this.productList.splice(index,1);
+
+//搜尋資料庫數據
+function searchProducts() {
+    this.offset = 0;
+    this.fetchProducts();
 }
+
 //載入資料庫數據
 function fetchProducts() {
-    fetch('http://localhost:8080/products')
+    let url = `http://localhost:8080/products?
+                limit=${this.limit}&offset=${this.offset}`;
+    if (this.selectedCategory !== '') {
+        url += `&category=${this.selectedCategory}`;
+    }
+    if (this.searchKeyword.trim() !== '') {
+        url += `&search=${this.searchKeyword.trim()}`;
+    }
+    console.log("正在查詢 URL:", url);
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log("後端回傳的商品資料:", data);
+            this.productList = data.results;
+            this.total = data.total;
+            this.offset = data.offset;
+            this.limit = data.limit;
+        })
+        .catch(error => {
+            console.error("發生錯誤:", error);
+        });
+}
+
+//載入購物車
+function fetchBuyItemList(){
+    // 發送 GET 請求給後端
+    fetch(`http://localhost:8080/getOrderList/${this.userId}`)   // API 路徑
+        .then(res => res.json())
+        .then(data => {
+            console.log("後端回傳的購物車資料:", data);
+            this.shopCart = {};
+            data.results.forEach(item => {
+                this.shopCart[item.productId] = item.count;
+            });
+            console.log("購物車資訊載入完成:", this.shopCart);
+        })
+}
+
+//手動輸入購買數量
+function handleInput(product) {
+    // 輸入空的、非數字、小於1 預設改回0
+    if (!product.count || product.count === '' || product.count < 1) {
+        product.count = 0;
+    }
+    // 不能超過庫存
+    if (product.count > product.stock) {
+        product.count = product.stock;
+        // 觸發你原本寫好的紅色錯誤提示
+        this.$set(product, 'showStockError', true);
+        setTimeout(() => {
+            this.$set(product, 'showStockError', false);
+        }, 1500);
+    }
+}
+
+//清空搜尋
+function clearSearch() {
+    this.selectedCategory = '';
+    this.searchKeyword = '';
+    this.offset = 0;
+    this.fetchProducts();
+}
+
+// 換頁
+function changePage(page) {
+    if (page < 1 || page > this.totalPages) return;
+    // 算出新的 offset
+    this.offset = (page - 1) * this.limit;
+    // 重新抓資料
+    this.fetchProducts();
+    // 換頁後自動滾動到最上面
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function addToCart(product) {
+    // 檢查數量是否大於 0
+    if (product.count <= 0) {
+        Swal.fire({
+            icon: 'warning', // 圖示
+            title: '請至少選擇 1 個商品！',
+            showConfirmButton: false, // 不顯示確定按鈕
+            timer: 1000
+        });
+        return;
+    }
+    // 取得商品在購物車的數量 (如果沒買過就是 0)
+    this.fetchBuyItemList()
+    let currentInCart = this.shopCart[product.productId] || 0;
+    // 計算庫存是否足夠
+    if (currentInCart + product.count > product.stock) {
+        let remaining = product.stock - currentInCart;
+        Swal.fire({
+            icon: 'warning',
+            title: '庫存不足',
+            text: `購物車已有 ${currentInCart} 個，您只能再買 ${remaining} 個喔！`,
+        });
+        product.count = remaining;
+        return;
+    }
+    // 準備要傳給後端的資料 (JSON)
+    const requestBody = {
+        buyItemList :[
+            {
+                productId: product.productId,
+                count: product.count
+            }
+        ]
+    };
+    console.log("準備送出的資料:", requestBody);
+
+    // 發送 POST 請求
+    fetch(`http://localhost:8080/createOrderList/${this.userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody) // 轉成 JSON 字串
+    })
         .then(response => {
-            // 檢查 HTTP 狀態碼是否為 200
             if (!response.ok) {
-                throw new Error('網路回應不正常');
+                throw new Error("加入失敗");
             }
             return response.json();
         })
         .then(data => {
-            console.log("後端回傳的資料:", data); // F12看主控台
-
-            this.productList = data.results;
-            this.total = data.total;
-            this.imageUrl = data.imageUrl
+            console.log("加入成功，後端回傳:", data);
+            Swal.fire({
+                icon: 'success', // 圖示
+                title: '已加入購物車',
+                // text: `${product.productName} 加入成功！`,
+                showConfirmButton: false, // 不顯示確定按鈕
+                timer: 1000
+            });
+            product.count = 0;
+            this.fetchProducts();
         })
         .catch(error => {
-            console.error("發生錯誤:", error);
-            this.errorMsg = "無法連線到後端，請確認 SpringBoot 是否已啟動";
+            console.error("錯誤:", error);
+            alert("加入購物車失敗，請稍後再試");
         });
 }
-
 new Vue({
     el:'#app',
     mixins: [authMixin],
     data:{
         productList: [],
+        shopCart: {},
         total: 0,
-        errorMsg: ''
+        offset: 0,
+        limit: 10,
+        errorMsg: '',
+        selectedCategory: '',
+        searchKeyword: ''
     },
     mounted() {
         this.checkLoginStatus(); // 呼叫共用的
         this.fetchProducts();
+        this.fetchBuyItemList();
+    },
+    computed: {
+        // 計算總共有幾頁
+        totalPages() {
+            return Math.ceil(this.total / this.limit);
+        },
+        // 計算現在是第幾頁
+        currentPage() {
+            return Math.floor(this.offset / this.limit) + 1;
+        }
     },
     methods: {
         fetchProducts,
+        fetchBuyItemList,
+        addToCart,
         plusButton,
         subButton,
-        handledelete
+        handleInput,
+        searchProducts,
+        clearSearch,
+        changePage
     }
 })

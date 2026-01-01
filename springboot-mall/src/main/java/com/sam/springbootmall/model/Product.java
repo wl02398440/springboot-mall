@@ -2,6 +2,7 @@ package com.sam.springbootmall.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.sam.springbootmall.constant.ProductCategory;
+import lombok.Data;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ import java.util.Date;
         "createdDate",
         "lastModifiedDate"
 })
+@Data
 public class Product {
 
     private Integer productId;
@@ -27,7 +29,7 @@ public class Product {
     private String description;
     private Date createdDate;
     private Date lastModifiedDate;
-    private Integer count = 1;
+    private Integer count = 0;
 
     public Integer getCount() {
         return count;

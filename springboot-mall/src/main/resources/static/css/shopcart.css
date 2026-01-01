@@ -1,0 +1,201 @@
+
+*{
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    box-sizing: border-box;
+    /*border: solid 1px #ccc;*/
+}
+body{
+    background-color: #f8f9fa;
+    margin: 0 ;
+    padding: 0;
+}
+/*導覽列*/
+header {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #333;
+    text-decoration: none;
+}
+.logo-shop {
+    position: absolute;
+    left: 250px;
+    top: 19px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.cart-icon {
+    font-size: 26px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: 1px solid #333;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+.btn:hover {
+    background: #3a4a3f;
+    color: #fff;
+}
+/*商品列*/
+.item_h {
+    padding-left: 3px;
+}
+
+.item_header{
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    /*height: 30px;*/
+    background-color: #f8f9fa;
+    padding-left: 10px;
+    margin-top: 20px;
+    border-bottom: 3px solid #eee;
+}
+.item_header div{
+    width: 200px;
+    color: #212529;
+    line-height: 30px;
+}
+.item_header .item_detail{
+    width: 50%;
+}
+.item_h .item_detail{
+    width: 465px;
+    margin: 0;
+    padding-left: 100px;
+}
+.item_h .count{
+    padding-left: 34px;
+}
+.item_h .amount{
+    margin-left: -8px;
+}
+.item_h .operate{
+    padding-left: 5px;
+}
+.item_body{
+    margin-top: 0;
+    border-bottom: 3px solid #eee;
+    height: 100px;
+    align-items: center;
+}
+.item_detail img{
+    width: 80px;
+    height: 80px;
+    border-radius: 3px;
+    /* margin-top: 10px; */
+    float: left;
+}
+.item_detail .name{
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.error-text {
+    position: absolute;
+    top: 100%;
+    left: 14%;
+    color: #e44b4b !important;
+    font-size: 14px;
+    margin-top: -5px;
+    background: transparent;/* 確保沒有背景色 *//
+}
+
+.count {
+    position: relative;
+}
+
+/* 設定輸入框的樣式 */
+.count-input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0 5px;
+    padding: 2px;
+}
+
+/* 隱藏瀏覽器預設的 "上下小箭頭"  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*結算列*/
+/* 總價區塊的外框 */
+.total-section {
+    display: flex;
+    justify-content: flex-end;
+    width: 815px;
+    margin: 20px auto;
+    align-items: center;
+    padding: 20px 0;
+}
+/* 強制取消 span 讓文字置中 */
+.total-section span {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1; /* 讓行高緊貼文字，避免隱形的高度撐開 */
+}
+
+/* 總價 */
+.total-section .label {
+    font-size: 20px;
+    font-weight: 570;
+    color: #212529;
+    margin-right: 24px;
+}
+
+/* 金額 */
+.total-section .total-money {
+    font-size: 24px;
+    color: #2776bb;
+    margin-right: 30px;
+}
+
+/* 結帳按鈕 */
+.checkout-btn {
+    background-color: #498bbb;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #4f7392;
+}

@@ -26,6 +26,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    //productMall(fetchProducts)
+    //取得商品資料
     @GetMapping("/products")
     public ResponseEntity<Page<Product>> getProducts(
             // 查詢條件 Filtering
@@ -33,11 +35,11 @@ public class ProductController {
             @RequestParam(required = false) String search,
 
             // 排序 Sorting
-            @RequestParam(defaultValue = "created_date") String orderBy,
+            @RequestParam(defaultValue = "category") String orderBy,
             @RequestParam(defaultValue = "desc") String sort,
 
             // 分頁 Pagination
-            @RequestParam(defaultValue = "5") @Max(1000) @Min(0) Integer limit,
+            @RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
             @RequestParam(defaultValue = "0") @Min(0) Integer offset
             ) {
         ProductQueryParams productQueryParams = new ProductQueryParams();

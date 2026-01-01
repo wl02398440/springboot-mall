@@ -7,7 +7,8 @@ const authMixin = {
             showRegister: false,
             loginForm: { email: 'www1@gmail.com', password: '111' },
             isLoggedIn: false,
-            currentUser: null
+            currentUser: null,
+            userId: null,
         };
     },
     methods: {
@@ -15,8 +16,10 @@ const authMixin = {
         checkLoginStatus() {
             const storedUser = sessionStorage.getItem('shop_user');
             if (storedUser) {
-                this.currentUser = JSON.parse(storedUser).userName;
+                const userData = JSON.parse(storedUser);
+                this.currentUser = userData.userName;
                 this.isLoggedIn = true;
+                this.userId = userData.userId;
             }
         },
         //登出帳號
@@ -24,8 +27,19 @@ const authMixin = {
             sessionStorage.clear();
             this.isLoggedIn = false;
             this.currentUser = null;
-            alert("已登出");
-            location.href = '../html/home.html';
+            this.userId = null;
+            Swal.fire({
+                title: '下次再來~',
+                showConfirmButton: false, // 不顯示確定按鈕
+                timer: 1000
+            }).then(() => {
+                location.href = '../html/home.html';
+            });
         },
+        //購物車
+        goShopcart(){
+            location.href = '../html/shopcart.html'
+        }
+
     }
 };
