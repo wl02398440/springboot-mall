@@ -32,12 +32,14 @@ header {
 }
 .logo-shop {
     position: absolute;
+    color: #555;
     left: 250px;
     top: 19px;
 }
 
 .nav-links {
     display: flex;
+    color: #555;
     align-items: center;
     gap: 20px;
 }
@@ -51,6 +53,9 @@ header {
     font-size: 26px;
     cursor: pointer;
     margin-right: 20px;
+}
+.cart-icon:hover {
+    color: #000;
 }
 
 .btn {

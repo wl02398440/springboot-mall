@@ -3,12 +3,10 @@
 const authMixin = {
     data() {
         return {
-            showLogin: false,
-            showRegister: false,
-            loginForm: { email: 'www1@gmail.com', password: '111' },
             isLoggedIn: false,
             currentUser: null,
             userId: null,
+            isManager: false
         };
     },
     methods: {
@@ -20,6 +18,7 @@ const authMixin = {
                 this.currentUser = userData.userName;
                 this.isLoggedIn = true;
                 this.userId = userData.userId;
+                this.isManager = userData.isManager;
             }
         },
         //登出帳號

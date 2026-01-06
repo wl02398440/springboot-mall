@@ -19,7 +19,6 @@ function register() {
             showConfirmButton: false, // 不顯示確定按鈕
             timer: 1000
         });
-        // alert("密碼不一致");
         return;
     }
     // 發送 POST 請求給後端
@@ -67,17 +66,17 @@ function register() {
                 showConfirmButton: true, // 不顯示確定按鈕
                 timer: 1000
             });
-            // alert(error.message); // 彈出視窗告訴使用者失敗原因
         });
 }
 
 // 登入帳號
 function login(){
     // 前端防呆
-    if (!this.loginForm.email || !this.loginForm.password) {
+    if (!this.loginForm.email || !this.loginForm.password
+        || !this.loginForm.password ) {
         Swal.fire({
             icon: 'warning', // 圖示
-            title: '請輸入 Email 和密碼！',
+            title: '請輸入完整資訊 (含驗證碼)',
             showConfirmButton: false, // 不顯示確定按鈕
             timer: 1000
         });
@@ -86,6 +85,7 @@ function login(){
     // 發送 POST 請求給後端
     fetch('http://localhost:8080/users/login', {  // API 路徑
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -107,7 +107,12 @@ function login(){
         .then(userData => {
             // 登入成功後的處理
             let shortName = userData.email.split('@')[0];
+            // 確認是否管理者
+            if (shortName === `www1`){
+                this.isManager = true;
+            }
             userData.userName = shortName;
+            userData.isManager = this.isManager;
             this.currentUser = userData.userName;
             this.isLoggedIn = true;
             this.userId = userData.userId;
@@ -119,7 +124,6 @@ function login(){
                 showConfirmButton: false, // 不顯示確定按鈕
                 timer: 1000
             });
-            // alert(`歡迎回來，${userData.userName}！`);
             this.showLogin = false; // 關閉登入視窗
             // 清空表單
             this.loginForm.email = '';
@@ -132,9 +136,9 @@ function login(){
                 icon: 'warning', // 圖示
                 title: error.message,
                 showConfirmButton: false, // 不顯示確定按鈕
-                timer: 1000
+                timer: 10000,
+
             });
-            // alert(error.message); // 彈出視窗告訴使用者失敗原因
         });
 }
 
@@ -165,28 +169,41 @@ function claen(){
     this.loginForm.email ='';
     this.loginForm.password ='';
 }
+// 刷新驗證碼
+function refreshCaptcha(){
+    // 加時間戳記強制瀏覽器重新抓取
+    this.captchaUrl = 'http://localhost:8080/captcha?t=' + Date.now();
+    this.loginForm.captcha = '';
+}
 
 new Vue({
     el: '#app',
     mixins: [authMixin],
-    // data: {
-    //     showLogin: false,    // 控制登入視窗顯示
-    //     showRegister: false, // 控制註冊視窗顯示
-    //     loginForm: {
-    //         email: 'www1@gmail.com',
-    //         password: '111'
-    //     },
-    //     confirmPassword: '',
-    //     isLoggedIn: false,  // 登入狀態
-    // },
+    data: {
+        showLogin: false,
+        showRegister: false,
+        loginForm: {
+            email: 'www1@gmail.com',
+            password: '111',
+            captcha: ''
+        },
+        captchaUrl: 'http://localhost:8080/captcha'
+    },
     mounted() {
         this.checkLoginStatus(); // 呼叫共用的
+
+    },
+    computed: {
+        isAdmin() {
+            return this.isManager;
+        }
     },
     methods: {
         login,
         register,
         shopNow,
         switchModal,
-        claen
+        claen,
+        refreshCaptcha
     }
 });

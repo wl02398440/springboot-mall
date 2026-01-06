@@ -93,6 +93,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    //新增商品
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct
             (@RequestBody @Valid ProductRequest productRequest){

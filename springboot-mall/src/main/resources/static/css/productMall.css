@@ -34,12 +34,14 @@ header {
 }
 .logo-shop {
     position: absolute;
+    color: #555;
     left: 250px;
     top: 19px;
 }
 
 .nav-links {
     display: flex;
+    color: #555;
     align-items: center;
     gap: 20px;
 }
@@ -53,6 +55,9 @@ header {
     font-size: 26px;
     cursor: pointer;
     margin-right: 20px;
+}
+.cart-icon:hover {
+    color: #000;
 }
 
 .btn {
@@ -84,11 +89,18 @@ header {
     font-size: 16px;
 }
 
-.search-btn,.clear-btn {
-    background-color: #fff;
-    color: #333;
+.btn-search{
+    background-color: #2d7ba5;
+    color: white;
     border-radius: 4px;
 }
+.btn-clear {
+    background-color: #6c757d;
+    color: white;
+    border-radius: 4px;
+}
+.btn-search:hover {background: #296671;}
+.btn-clear:hover {background: #3a4a3f;}
 
 /*分頁列*/
 /* 分頁外框 */
@@ -101,7 +113,7 @@ header {
 }
 
 /* 上一頁/下一頁按鈕 */
-.page-btn {
+.btn-page {
     background: white;
     border: 1px solid #333;
     border-radius: 4px;
@@ -109,7 +121,7 @@ header {
     cursor: pointer;
     color: #555;
 }
-.page-btn:disabled {
+.btn-page:disabled {
     color: #ccc;
     cursor: not-allowed;
     background: #f9f9f9;
@@ -126,7 +138,7 @@ header {
     transition: 0.3s;
 }
 
-.page-number:hover,.page-btn:hover {
+.page-number:hover,.btn-page:hover {
     background-color: #3a4a3f;
     color: #fff;
 }

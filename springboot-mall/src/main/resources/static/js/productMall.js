@@ -53,7 +53,7 @@ function fetchProducts() {
 //載入購物車
 function fetchBuyItemList(){
     // 發送 GET 請求給後端
-    fetch(`http://localhost:8080/getOrderList/${this.userId}`)   // API 路徑
+    return fetch(`http://localhost:8080/getOrderList/${this.userId}`)   // API 路徑
         .then(res => res.json())
         .then(data => {
             console.log("後端回傳的購物車資料:", data);
@@ -66,21 +66,21 @@ function fetchBuyItemList(){
 }
 
 //手動輸入購買數量
-function handleInput(product) {
-    // 輸入空的、非數字、小於1 預設改回0
-    if (!product.count || product.count === '' || product.count < 1) {
-        product.count = 0;
-    }
-    // 不能超過庫存
-    if (product.count > product.stock) {
-        product.count = product.stock;
-        // 觸發你原本寫好的紅色錯誤提示
-        this.$set(product, 'showStockError', true);
-        setTimeout(() => {
-            this.$set(product, 'showStockError', false);
-        }, 1500);
-    }
-}
+// function handleInput(product) {
+//     // 輸入空的、非數字、小於1 預設改回0
+//     if (!product.count || product.count === '' || product.count < 1) {
+//         product.count = 0;
+//     }
+//     // 不能超過庫存
+//     if (product.count > product.stock) {
+//         product.count = product.stock;
+//         // 觸發你原本寫好的紅色錯誤提示
+//         this.$set(product, 'showStockError', true);
+//         setTimeout(() => {
+//             this.$set(product, 'showStockError', false);
+//         }, 1500);
+//     }
+// }
 
 //清空搜尋
 function clearSearch() {
@@ -101,7 +101,7 @@ function changePage(page) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function addToCart(product) {
+async function addToCart(product) {
     // 檢查數量是否大於 0
     if (product.count <= 0) {
         Swal.fire({
@@ -113,8 +113,9 @@ function addToCart(product) {
         return;
     }
     // 取得商品在購物車的數量 (如果沒買過就是 0)
-    this.fetchBuyItemList()
+    await this.fetchBuyItemList()
     let currentInCart = this.shopCart[product.productId] || 0;
+    console.log("商品購物車數量:", currentInCart)
     // 計算庫存是否足夠
     if (currentInCart + product.count > product.stock) {
         let remaining = product.stock - currentInCart;
@@ -140,9 +141,7 @@ function addToCart(product) {
     // 發送 POST 請求
     fetch(`http://localhost:8080/createOrderList/${this.userId}`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(requestBody) // 轉成 JSON 字串
     })
         .then(response => {
@@ -156,7 +155,6 @@ function addToCart(product) {
             Swal.fire({
                 icon: 'success', // 圖示
                 title: '已加入購物車',
-                // text: `${product.productName} 加入成功！`,
                 showConfirmButton: false, // 不顯示確定按鈕
                 timer: 1000
             });
@@ -202,7 +200,6 @@ new Vue({
         addToCart,
         plusButton,
         subButton,
-        handleInput,
         searchProducts,
         clearSearch,
         changePage

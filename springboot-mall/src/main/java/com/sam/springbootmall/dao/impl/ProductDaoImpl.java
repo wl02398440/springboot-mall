@@ -137,6 +137,7 @@ public class ProductDaoImpl implements ProductDao {
         return productList.get(0);
     }
 
+    //增加查詢條件
     private String addFilteringSql(ProductQueryParams productQueryParams, Map<String, Object> map, String sql) {
         //查詢條件
         if (productQueryParams.getCategory() != null) {

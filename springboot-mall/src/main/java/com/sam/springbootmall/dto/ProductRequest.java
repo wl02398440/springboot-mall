@@ -9,7 +9,7 @@ public class ProductRequest {
     private String productName;
     @NotNull
     private ProductCategory category;
-    @NotNull
+//    @NotNull
     private String imageUrl;
     @NotNull
     private Integer price;
