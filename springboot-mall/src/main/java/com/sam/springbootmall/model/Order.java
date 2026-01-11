@@ -10,6 +10,7 @@ public class Order {
     private Integer totalAmount;
     private Date createdDate;
     private Date lastModifiedDate;
+    private String status;
     private List<OrderItem> orderItems;
 
     public List<OrderItem> getOrderItems() {
@@ -18,6 +19,14 @@ public class Order {
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Integer getOrderId() {

@@ -14,9 +14,17 @@
 
 <div id="app">
     <header>
-        <a href="home.html" class="logo">SIMPLESHOP</a>
-        <div  @click="shopNow" class="logo logo-shop">商場</div>
-        <a  href="productManage.html" class="logo logo-manage" v-if="isAdmin">管理商場</a>
+        <div class="header-left">
+            <a href="home.html" class="logo">SIMPLESHOP</a>
+            <div @click="shopNow" class="nav-item">商場</div>
+            <div @click="orderUser" class="nav-item">我的訂單</div>
+
+            <template v-if="isManager">
+                <a href="productManage.html" class="nav-item">商場管理</a>
+                <a href="orderManage.html" class="nav-item">訂單管理</a>
+            </template>
+
+        </div>
 
         <nav class="nav-links">
             <template v-if="!isLoggedIn">
@@ -27,8 +35,40 @@
             <template v-if="isLoggedIn">
                 <span class="user">{{ currentUser }}</span>
 
-                <div class="cart-icon" @click="goShopcart">
-                    <i class="fas fa-shopping-cart"></i>
+
+                <div class="cart-wrapper">
+                    <div class="cart-icon" @click="goShopcart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" v-if="shopCart.length > 0">{{ shopCart.length }}</span>
+                    </div>
+
+                    <div class="mini-cart-dropdown">
+                        <div class="empty-cart" v-if="shopCart.length === 0">
+                            <p>尚未選購商品</p>
+                        </div>
+
+                        <div class="has-items" v-else>
+
+                            <ul class="mini-list">
+                                <li v-for="(item, index) in shopCart" :key="index" class="mini-item">
+                                    <img :src="item.imageUrl" class="item-img">
+                                    <div class="item-info">
+                                        <div class="item-name">{{ item.productName }}</div>
+                                        <div class="item-price">${{ item.price }}</div>
+                                    </div>
+                                    <div class="item-count">x {{ item.count }}</div>
+                                    <div class="delete-btn" @click="handleDelete(item.productId)" >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="mini-footer">
+                                <div class="total-text">{{ shopCart.length }} 件商品</div>
+                                <button class="btn-checkout" @click="goShopcart">查看我的購物車</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <button class="btn" @click="logout">登出</button>
@@ -36,11 +76,49 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Less is More.</h1>
-        <p>極簡生活，從這裡開始。</p>
-            <button class="btn" @click="shopNow">立即選購</button>
-    </section>
+    <div class="main-content">
+
+        <div class="promo-section container">
+
+            <div class="carousel" @mouseenter="stopSlide" @mouseleave="startSlide">
+                <div class="slide-wrapper" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+                    <div class="slide" v-for="(img, index) in banners" :key="index">
+                        <img :src="img" alt="banner" @click="shopNow">
+                    </div>
+                </div>
+
+                <div class="indicators">
+                    <span v-for="(img, index) in banners" :key="index"
+                          :class="{ active: currentSlide === index }"
+                          @mouseenter="currentSlide = index"></span>
+                </div>
+
+                <button class="arrow prev" @click="prevSlide">&#10094;</button>
+                <button class="arrow next" @click="nextSlide">&#10095;</button>
+            </div>
+
+        </div>
+
+        <div class="benefit-bar container">
+            <div class="benefit-item">
+                <div class="icon-circle"><i class="fas fa-shipping-fast"></i></div>
+                <span>免運費</span>
+            </div>
+            <div class="benefit-item">
+                <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
+                <span>蝦皮優選</span>
+            </div>
+            <div class="benefit-item">
+                <div class="icon-circle"><i class="fas fa-tags"></i></div>
+                <span>超值優惠</span>
+            </div>
+            <div class="benefit-item">
+                <div class="icon-circle"><i class="fas fa-coins"></i></div>
+                <span>蝦幣回饋</span>
+            </div>
+        </div>
+
+    </div>
 
     <transition name="fade">
         <div class="modal-overlay" v-if="showLogin" @click.self="showLogin = false">

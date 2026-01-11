@@ -3,13 +3,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Microsoft JhengHei', Arial, sans-serif;
     /*border: solid 1px #ddd;*/
 }
 
 body {
-    background-color: #f2f2f2; /* 淺灰背景 */
-    color: #333; /* 深灰文字 */
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 確保 body 至少跟螢幕一樣高 */
 }
 
 a {
@@ -21,7 +26,7 @@ ul {
     list-style: none;
 }
 
-/* --- 2. 導覽列 --- */
+/* 導覽列 */
 header {
     background-color: #fff;
     padding: 20px 40px;
@@ -32,28 +37,33 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    height: 80px;
+}
+
+/* 左邊 */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #333;
+    color: #72a419;
     cursor: pointer;
 }
 
-.logo-shop {
-    position: absolute;
+.nav-item {
+    font-size: 24px;
     color: #555;
-    left: 250px;
-    top: 19px;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
 }
-
-.logo-manage {
-    position: absolute;
-    color: #555;
-    left: 340px;
-    top: 19px;
+.nav-item:hover {
+    color: #887538;
 }
 
 .nav-links {
@@ -64,16 +74,166 @@ header {
 }
 
 .user {
-    font-size: 20px;
+    font-size: 22px;
     margin-right: 10px;
+    font-weight: 600;
 }
+
+/* 購物車 */
+.cart-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0;
+    margin-right: 20px;
+}
+
 .cart-icon {
     font-size: 26px;
     cursor: pointer;
-    margin-right: 20px;
+    position: relative;
 }
 .cart-icon:hover {
-    color: #000;
+    color: #887538;
+}
+
+/* 購物車數量 */
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #eebb1c;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+/* --- 下拉選單 (Mini Cart) --- */
+.mini-cart-dropdown {
+    position: absolute;
+    top: 100%; /* 在 wrapper 的正下方 */
+    right: -10px;
+    width: 340px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 999;
+
+    /* 預設隱藏 */
+    display: none;
+    cursor: default;
+    border: 1px solid #e0e0e0;
+}
+
+.cart-wrapper:hover .mini-cart-dropdown {
+    display: block;
+    animation: fadeIn 0.2s ease-in;
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 下拉選單內容樣式 --- */
+.empty-cart {
+    padding: 40px;
+    text-align: center;
+    color: #888;
+}
+
+.mini-list {
+    max-height: 280px; /* 超過高度就捲動 */
+    overflow-y: auto;
+    list-style: none;
+}
+
+.mini-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    transition: 0.2s;
+}
+.mini-item:hover {
+    background-color: #f8f8f8;
+}
+
+.item-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    margin-right: 10px;
+}
+
+.item-info {
+    flex: 1; /* 佔滿剩餘空間 */
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.item-name {
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 太長顯示... */
+    margin-bottom: 4px;
+}
+
+.item-price {
+    color: #eebb1c;
+    font-size: 14px;
+}
+
+.item-count {
+    font-size: 16px;
+    color: #666;
+    margin-left: 10px;
+}
+
+/* 刪除 */
+.delete-btn {
+    margin-left: 15px;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    color: #ee4d2d;
+    transform: scale(1.2);
+}
+
+.mini-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+.total-text {
+    font-size: 16px;
+    color: #666;
+}
+
+.btn-checkout {
+    background-color: #eebb1c;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn-checkout:hover {
+    background-color: #e3b00d;
 }
 
 .btn {
@@ -82,43 +242,154 @@ header {
     background: transparent;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .btn:hover {
-    background: #3a4a3f;
-    color: #fff;
+    background: #c9cac5;
 }
 
-/* --- 3. Hero Banner (形象區) --- */
-.hero {
-    height: 600px;
-    background-color: #ddd;
+/* 廣告區 */
+.container {
+    width: 950px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.main-content {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: #f2f2f2;
+    flex: 1;
+}
+
+/* 廣告區塊 */
+.promo-section {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: 300;
     margin-bottom: 10px;
+    /*height: 370px;*/
 }
 
-.hero p {
-    color: #666;
-    margin-bottom: 20px;
+/* 輪播 */
+.carousel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    /* ★★★ 新增這一行：設定寬高比 ★★★ */
+    /* 21 / 9 是一個很常見的電影寬螢幕比例，看起來比較扁長時尚 */
+    /* 您也可以試試 16 / 5 或 3 / 1，數字越大越扁 */
+    aspect-ratio: 21 / 10;
+}
+
+.slide-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 圖片填滿，不變形 */
+}
+
+/* 左右按鈕 */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.15);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: 0.2s;
+    opacity: 0; /* 平常隱藏 */
+}
+.carousel:hover .arrow { opacity: 1; } /* 滑鼠移上去才顯示 */
+.arrow:hover { background: rgba(0,0,0,0.4); }
+
+.prev { left: 0; border-top-right-radius: 4px; border-bottom-right-radius: 4px;}
+.next { right: 0; border-top-left-radius: 4px; border-bottom-left-radius: 4px;}
+
+/* 圓點 */
+.indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+.indicators span {
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.indicators span.active {
+    background: #f7c422;
+    border-color: #f7c422;
+    transform: scale(1.2);
+}
+
+/* 其他欄 */
+.benefit-bar {
+    background: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+
+}
+
+.benefit-item {
+    flex: 1; /* 平均分配寬度 */
+    display: flex;
+    flex-direction: column; /* 上下排列 */
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-right: 1px solid #eee;
+}
+.benefit-item:last-child { border-right: none; }
+.benefit-item:hover { transform: translateY(-2px); }
+
+/* icon 背景 */
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.benefit-item i {
     font-size: 20px;
+    color: #f7c422;
 }
 
-.hero .btn {
-    padding: 8px 24px;
-    font-size: 26px;
-}
-/* --- 4. 彈跳視窗 (Modal) --- */
+
+/* 彈跳視窗 */
 .modal-overlay {
     position: fixed;
     top: 0;

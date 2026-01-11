@@ -53,11 +53,12 @@ function fetchProducts() {
 //載入購物車
 function fetchBuyItemList(){
     // 發送 GET 請求給後端
-    return fetch(`http://localhost:8080/getOrderList/${this.userId}`)   // API 路徑
+    return fetch(`http://localhost:8080/getOrderList/${this.userId}`)
         .then(res => res.json())
         .then(data => {
             console.log("後端回傳的購物車資料:", data);
             this.shopCart = {};
+            this.cart = data.results;
             data.results.forEach(item => {
                 this.shopCart[item.productId] = item.count;
             });
@@ -101,6 +102,7 @@ function changePage(page) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+//加入購物車
 async function addToCart(product) {
     // 檢查數量是否大於 0
     if (product.count <= 0) {
@@ -160,12 +162,40 @@ async function addToCart(product) {
             });
             product.count = 0;
             this.fetchProducts();
+            this.fetchBuyItemList();
         })
         .catch(error => {
             console.error("錯誤:", error);
             alert("加入購物車失敗，請稍後再試");
         });
 }
+
+//刪除商品
+function handleDelete(productId){
+    // 發送 DELETE 請求給後端
+    // API 路徑
+    fetch(`http://localhost:8080/deleteOrderList/${this.userId}/${productId}`,{
+        method: 'DELETE'
+    })
+        .then(response => {
+            // 檢查後端回應狀態
+            if (!response.ok) {
+                throw new Error('網路回應不正常');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("後端回傳的資料:", data);
+            this.fetchBuyItemList();
+        })
+        .catch(error => {
+            // 錯誤處理
+            console.error("發生錯誤:", error);
+            alert(error.message); // 彈出視窗告訴使用者失敗原因
+        });
+}
+
+
 new Vue({
     el:'#app',
     mixins: [authMixin],
@@ -177,7 +207,8 @@ new Vue({
         limit: 10,
         errorMsg: '',
         selectedCategory: '',
-        searchKeyword: ''
+        searchKeyword: '',
+        cart: []
     },
     mounted() {
         this.checkLoginStatus(); // 呼叫共用的
@@ -202,6 +233,7 @@ new Vue({
         subButton,
         searchProducts,
         clearSearch,
-        changePage
+        changePage,
+        handleDelete
     }
 })

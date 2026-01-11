@@ -1,14 +1,21 @@
 
 *{
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Microsoft JhengHei', Arial, sans-serif;
     box-sizing: border-box;
     /*border: solid 1px #ccc;*/
 }
+
 body{
     background-color: #f8f9fa;
     margin: 0 ;
     padding: 0;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /*導覽列*/
 header {
     background-color: #fff;
@@ -16,25 +23,40 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 100;
-    margin: 0;
+    height: 80px;
+}
+
+/* 左邊 */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 2px;
     color: #333;
-    text-decoration: none;
+    cursor: pointer;
 }
-.logo-shop {
-    position: absolute;
+.logo:hover {
+    color: #887538;
+}
+
+.nav-item {
+    font-size: 24px;
     color: #555;
-    left: 250px;
-    top: 19px;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.nav-item:hover {
+    color: #887538;
 }
 
 .nav-links {
@@ -45,17 +67,37 @@ header {
 }
 
 .user {
-    font-size: 20px;
+    font-size: 22px;
     margin-right: 10px;
+    font-weight: 600;
+}
+
+/* 購物車 */
+.cart-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0;
+    margin-right: 20px;
 }
 
 .cart-icon {
     font-size: 26px;
     cursor: pointer;
-    margin-right: 20px;
+    position: relative;
+    color: #72a419;
 }
-.cart-icon:hover {
-    color: #000;
+
+/* 購物車數量 */
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #eebb1c;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 1px solid #fff;
 }
 
 .btn {
@@ -67,8 +109,7 @@ header {
     font-size: 14px;
 }
 .btn:hover {
-    background: #3a4a3f;
-    color: #fff;
+    background: #c9cac5;
 }
 /*商品列*/
 .item_h {
@@ -97,6 +138,19 @@ header {
     width: 465px;
     margin: 0;
     padding-left: 100px;
+}
+/*--------------------------------------------------------*/
+.count-sub {
+    position: relative;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    bottom: 1.5px;
+}
+.count-plus {
+    position: relative;
+    padding-bottom: 2px;
+    bottom: 1.5px;
 }
 .item_h .count{
     padding-left: 34px;
@@ -166,12 +220,6 @@ input::-webkit-inner-spin-button {
     margin: 20px auto;
     align-items: center;
     padding: 20px 0;
-}
-/* 強制取消 span 讓文字置中 */
-.total-section span {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1; /* 讓行高緊貼文字，避免隱形的高度撐開 */
 }
 
 /* 總價 */

@@ -28,13 +28,13 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List<Order> getOrders(OrderQueryParams orderQueryParams) {
-        String sql = "select order_id, user_id, total_amount, created_date, last_modified_date" +
-                " from `order` where 1 = 1";
+        String sql = "select order_id, user_id, total_amount, created_date," +
+                " last_modified_date, status from `order` where 1 = 1";
         Map<String, Object> map = new HashMap<>();
         //查詢條件
         sql = addFilteringSql(orderQueryParams, map, sql);
         //排序
-        sql = sql + " order by created_date desc";
+        sql = sql + " order by order_id asc";
         //分頁
         sql = sql + " limit :limit offset :offset";
         map.put("limit", orderQueryParams.getLimit());
@@ -42,7 +42,7 @@ public class OrderDaoImpl implements OrderDao {
 
         List<Order> orders = namedParameterJdbcTemplate.query(sql, map, new OrderRowMapper());
 
-        if (orders == null || orders.isEmpty()) {
+        if (orders.isEmpty()) {
             return null;
         }
         return orders;
@@ -50,7 +50,7 @@ public class OrderDaoImpl implements OrderDao {
 //查詢排序分頁orderList
     @Override
     public List<OrderItem> getOrderItemListByUserId(OrderItemQueryParams orderItemQueryParams) {
-        String sql = "select oi.order_item_id, oi.user_id, oi.product_id, oi.count, oi.amount," +
+        String sql = "select oi.order_item_id, oi.user_id, oi.product_id, oi.count, oi.amount, oi.order_id," +
                 " p.product_name, p.image_url, p.price, p.stock from order_item as oi" +
                 " join product as p on p.product_id = oi.product_id " +
                 "where oi.user_id = :userId";
@@ -71,7 +71,7 @@ public class OrderDaoImpl implements OrderDao {
 //單純傳orderList
     @Override
     public List<OrderItem> getOrderItemListByUserId(Integer userId) {
-        String sql = "select oi.order_item_id, oi.user_id, oi.product_id, oi.count, oi.amount," +
+        String sql = "select oi.order_item_id, oi.user_id, oi.product_id, oi.count, oi.amount, oi.order_id," +
                 " p.product_name, p.image_url, p.price, p.stock from order_item as oi" +
                 " join product as p on p.product_id = oi.product_id " +
                 "where oi.user_id = :userId";
@@ -82,6 +82,21 @@ public class OrderDaoImpl implements OrderDao {
         return orderItemList;
     }
 
+    //傳orderList by orderId
+    @Override
+    public List<OrderItem> getOrderItemListByOrderId(Integer orderId) {
+        String sql = "select oi.order_item_id, oi.user_id, oi.product_id, oi.count, oi.amount, oi.order_id," +
+                " p.product_name, p.image_url, p.price, p.stock from order_item as oi" +
+                " join product as p on p.product_id = oi.product_id" +
+                " where oi.order_id = :orderId";
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        List<OrderItem> orderItemList = namedParameterJdbcTemplate.query(sql, map, new OrderItemRowMapper());
+
+        return orderItemList;
+    }
+
+    //order總數
     @Override
     public Integer countOrder(OrderQueryParams orderQueryParams) {
         String sql = "select count(*) from `order` where 1 = 1";
@@ -91,6 +106,7 @@ public class OrderDaoImpl implements OrderDao {
         return namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class);
     }
 
+    //orderItem總數
     @Override
     public Integer countOrderItem(OrderItemQueryParams orderItemQueryParams) {
         String sql = "select count(*) from order_item where 1 = 1";
@@ -100,6 +116,7 @@ public class OrderDaoImpl implements OrderDao {
         return namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class);
     }
 
+    //創建order
     @Override
     public Integer createOrder(Integer userId, Integer totalAmount) {
         String sql = "insert into `order`(user_id,total_amount,created_date,last_modified_date) " +
@@ -162,9 +179,9 @@ public class OrderDaoImpl implements OrderDao {
         namedParameterJdbcTemplate.update(sql, map);
     }
 
-    //delete OrderItem
+    //delete OrderItem by productId
     @Override
-    public void deleteOrderItem(Integer productId) {
+    public void deleteOrderItemByProductId(Integer productId) {
         String sql = "delete from order_item where product_id = :productId";
 
         Map<String, Object> map = new HashMap<>();
@@ -172,10 +189,79 @@ public class OrderDaoImpl implements OrderDao {
         namedParameterJdbcTemplate.update(sql, map);
     }
 
+    //delete OrderItem by orderId
+    @Override
+    public void deleteOrderItemByOrderId(Integer orderId) {
+        String sql = "delete from order_item where order_id = :orderId";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    //update訂單狀態(付款後)
+    @Override
+    public void updateOrder(Integer orderId) {
+        String sql = "update `order` set status = '已付款'," +
+                " last_modified_date = :lastModifiedDate" +
+                " where order_id = :orderId;";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        Date date = new Date();
+        map.put("lastModifiedDate", date);
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    @Override
+    public void updateOrder(Integer orderId, String status) {
+        String sql = "update `order` set status = :status," +
+                " last_modified_date = :lastModifiedDate" +
+                " where order_id = :orderId;";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        switch (status) {
+            case ("cancel"):
+                status = "已取消";
+                break;
+            case ("shipped"):
+                status = "已出貨";
+                break;
+        }
+        map.put("status", status);
+        Date date = new Date();
+        map.put("lastModifiedDate", date);
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    // 創建BuyItem
+    @Override
+    public void createBuyItem(Integer orderId) {
+        String sql = "insert into buy_item  select * from order_item " +
+                "where order_id = :orderId;";
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    // 取得BuyItem數據
+    @Override
+    public List<OrderItem> getBuyItemListByOrderId(Integer orderId) {
+        String sql = "select bi.order_item_id, bi.user_id, bi.product_id, bi.count, bi.amount, bi.order_id," +
+                " p.product_name, p.image_url, p.price, p.stock from buy_item as bi" +
+                " join product as p on p.product_id = bi.product_id" +
+                " where bi.order_id = :orderId";
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        List<OrderItem> buyItemList = namedParameterJdbcTemplate.query(sql, map, new OrderItemRowMapper());
+        return buyItemList;
+    }
+
     @Override
     public Order getOrderByOrderId(Integer orderId) {
         String sql = "select order_id, user_id, total_amount, created_date, last_modified_date" +
-                " from `order` where order_id = :orderId";
+                ", status from `order` where order_id = :orderId";
         Map<String, Object> map = new HashMap<>();
         map.put("orderId", orderId);
         List<Order> orderList = namedParameterJdbcTemplate.query(sql, map, new OrderRowMapper());
@@ -186,9 +272,19 @@ public class OrderDaoImpl implements OrderDao {
         return orderList.get(0);
     }
 
+    @Override
+    public void updateOrderItemOrderId(Integer orderId, Integer productId) {
+        String sql = "update order_item set order_id = :orderId" +
+                " where product_id = :productId;";
 
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        map.put("productId", productId);
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    //查詢條件
     private String addFilteringSql(OrderQueryParams orderQueryParams, Map<String, Object> map, String sql) {
-        //查詢條件
         if (orderQueryParams.getUserId() != null) {
             sql = sql + " and user_id = :userId";
             map.put("userId", orderQueryParams.getUserId());

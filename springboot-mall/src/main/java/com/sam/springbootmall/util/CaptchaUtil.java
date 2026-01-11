@@ -9,7 +9,7 @@ public class CaptchaUtil {
 
     // 產生 4 位數隨機驗證碼
     public static String generateCode() {
-        String str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String str = "23456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 4; i++) {

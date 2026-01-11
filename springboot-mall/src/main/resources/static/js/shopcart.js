@@ -97,6 +97,7 @@ function handleDelete(productId){
             alert(error.message); // 彈出視窗告訴使用者失敗原因
         });
 }
+
 //載入購物車
 function fetchBuyItemList(){
     // 發送 GET 請求給後端
@@ -128,6 +129,55 @@ function fetchBuyItemList(){
         });
 }
 
+//結帳
+function checkout(){
+    if (this.productList.length === 0) {
+        Swal.fire("購物車是空的喔！");
+        return;
+    }
+
+    const buyItemList = this.productList.map(item => {
+        return {
+            productId: item.productId,
+            count: item.count
+        };
+    });
+    console.log("buyItemList:", buyItemList);
+    const orderRequest = {
+        buyItemList: buyItemList
+    };
+
+    // 模擬讀取中
+    Swal.fire({
+        title: '訂單建立中...',
+        didOpen: () => { Swal.showLoading() }
+    });
+
+    // 發送 API
+    fetch(`http://localhost:8080/users/${this.userId}/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderRequest),
+        credentials: 'include'
+    })
+        .then(res => {
+            if (!res.ok) throw new Error("建立訂單失敗");
+            return res.json();
+        })
+        .then(orderData => {
+            // 關閉 Loading
+            Swal.close();
+            // 建立成功後跳轉到 payment.html
+            window.location.href =
+                `payment.html?oid=${orderData.orderId}&total=${orderData.totalAmount}`;
+        })
+        .catch(err => {
+            console.error(err);
+            Swal.fire("結帳失敗", "請稍後再試", "error");
+        });
+
+}
+
 new Vue({
     el:'#app',
     mixins: [authMixin],
@@ -154,6 +204,7 @@ new Vue({
         subButton,
         handleDelete,
         updateCount,
-        handleInput
+        handleInput,
+        checkout,
     }
 })

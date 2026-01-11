@@ -111,12 +111,14 @@ function login(){
             if (shortName === `www1`){
                 this.isManager = true;
             }
+            console.log("管理者:", shortName);
             userData.userName = shortName;
             userData.isManager = this.isManager;
             this.currentUser = userData.userName;
             this.isLoggedIn = true;
             this.userId = userData.userId;
             sessionStorage.setItem('shop_user', JSON.stringify(userData));
+            this.fetchCartInfo(); //載入購物車
             console.log("登入成功，使用者資料:", userData);
             Swal.fire({
                 icon: 'success', // 圖示
@@ -158,6 +160,21 @@ function shopNow() {
     }
 }
 
+// 顧客訂單
+function orderUser() {
+    if (this.isLoggedIn) {
+        location.href = '../html/orderUser.html';
+    } else {
+        Swal.fire({
+            icon: 'warning', // 圖示
+            title: '請先登入會員喔！',
+            showConfirmButton: false, // 不顯示確定按鈕
+            timer: 1000
+        }).then(() => {
+            this.showLogin = true;// 打開登入視窗
+        })
+    }
+}
 
 // 關閉視窗
 function switchModal() {
@@ -176,6 +193,65 @@ function refreshCaptcha(){
     this.loginForm.captcha = '';
 }
 
+// 自動播放
+function startSlide() {
+    this.timer = setInterval(this.nextSlide, 3000);
+}
+// 停止自動撥放
+function stopSlide() {
+    clearInterval(this.timer);
+    this.timer = null;
+}
+// 下一個頁面
+function nextSlide() {
+    this.currentSlide = (this.currentSlide + 1) % this.banners.length;
+}
+// 上一個頁面
+function prevSlide() {
+    this.currentSlide = (this.currentSlide - 1 + this.banners.length) % this.banners.length;
+}
+
+//載入購物車
+function fetchCartInfo() {
+    if(!this.userId) return;
+
+    fetch(`http://localhost:8080/getOrderList/${this.userId}`, {
+        method: 'GET',
+        // cookie
+        credentials: 'include'
+    })
+        .then(res => res.json())
+        .then(data => {
+            this.shopCart = data.results;
+        })
+        .catch(err => console.error("無法取得購物車", err));
+}
+
+//刪除商品
+function handleDelete(productId){
+    // 發送 DELETE 請求給後端
+    // API 路徑
+    fetch(`http://localhost:8080/deleteOrderList/${this.userId}/${productId}`,{
+        method: 'DELETE'
+    })
+        .then(response => {
+            // 檢查後端回應狀態
+            if (!response.ok) {
+                throw new Error('網路回應不正常');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("後端回傳的資料:", data);
+            this.fetchCartInfo();
+        })
+        .catch(error => {
+            // 錯誤處理
+            console.error("發生錯誤:", error);
+            alert(error.message); // 彈出視窗告訴使用者失敗原因
+        });
+}
+
 new Vue({
     el: '#app',
     mixins: [authMixin],
@@ -187,11 +263,33 @@ new Vue({
             password: '111',
             captcha: ''
         },
-        captchaUrl: 'http://localhost:8080/captcha'
+        captchaUrl: 'http://localhost:8080/captcha',
+        // --- 輪播圖設定 ---
+        currentSlide: 0,
+        timer: null,
+        // 橫幅背景
+        banners: [
+            // 第一張：模擬 "超級品牌日" 廣告
+            'http://localhost:8080/images/1.jpg',
+            // 第二張：模擬 "本日熱銷" 廣告
+            'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80',
+            // 第三張：模擬 "今日新上架" 廣告
+            'http://localhost:8080/images/1.jpg',
+            // 第四張
+            'http://localhost:8080/images/1.jpg'
+        ],
+        shopCart: []
     },
     mounted() {
         this.checkLoginStatus(); // 呼叫共用的
-
+        this.startSlide();
+        if (this.isLoggedIn) {
+            this.fetchCartInfo(); //載入購物車
+        }
+    },
+    // 離開頁面或是元件銷毀前，停止計時器，避免記憶體洩漏
+    beforeDestroy() {
+        this.stopSlide();
     },
     computed: {
         isAdmin() {
@@ -204,6 +302,13 @@ new Vue({
         shopNow,
         switchModal,
         claen,
-        refreshCaptcha
+        refreshCaptcha,
+        startSlide,
+        stopSlide,
+        nextSlide,
+        prevSlide,
+        fetchCartInfo,
+        handleDelete,
+        orderUser
     }
 });

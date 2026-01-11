@@ -7,6 +7,7 @@ public class OrderItem {
     private Integer productId;
     private Integer count;
     private Integer amount;
+    private Integer orderId;
 
     private String productName;
     private String imageUrl;
@@ -21,6 +22,14 @@ public class OrderItem {
                 ", count=" + count +
                 ", amount=" + amount +
                 '}';
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getStock() {

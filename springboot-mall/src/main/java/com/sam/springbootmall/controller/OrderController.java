@@ -6,6 +6,7 @@ import com.sam.springbootmall.dto.OrderQueryParams;
 import com.sam.springbootmall.model.Order;
 import com.sam.springbootmall.model.OrderItem;
 import com.sam.springbootmall.service.OrderService;
+import com.sam.springbootmall.service.ProductService;
 import com.sam.springbootmall.util.Page;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
@@ -13,20 +14,26 @@ import jakarta.validation.constraints.Min;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Transactional
 @Validated
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:63342", allowCredentials = "true")
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
-//創建order
+    @Autowired
+    private ProductService productService;
+
+    //shopCart(checkout)
+    //創建order
     @PostMapping("/users/{userId}/orders")
     public ResponseEntity<Order> createOrder
             (@PathVariable Integer userId,
@@ -37,16 +44,42 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
-//取得order
-    @GetMapping("/users/{userId}/orders")
+
+    //orderManage(fetchOrders)
+    //取得order
+    @GetMapping("orders")
     public ResponseEntity<Page<Order>> getOrders
-            (@PathVariable Integer userId,
-             @RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
+            (@RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
              @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
         OrderQueryParams orderQueryParams = new OrderQueryParams();
-        orderQueryParams.setUserId(userId);
         orderQueryParams.setLimit(limit);
         orderQueryParams.setOffset(offset);
+
+        List<Order> orderList = orderService.getOrders(orderQueryParams);
+
+        //取得order總數
+        Integer count = orderService.countOrder(orderQueryParams);
+
+        Page<Order> page = new Page<>();
+        page.setLimit(limit);
+        page.setOffset(offset);
+        page.setTotal(count);
+        page.setResults(orderList);
+
+        return ResponseEntity.status(HttpStatus.OK).body(page);
+    }
+
+    //orderUser(fetchUserOrders)
+    //取得userOrder
+    @GetMapping("orders/{userId}")
+    public ResponseEntity<Page<Order>> getOrdersByUserId
+        (@PathVariable Integer userId,
+         @RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
+         @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
+        OrderQueryParams orderQueryParams = new OrderQueryParams();
+        orderQueryParams.setLimit(limit);
+        orderQueryParams.setOffset(offset);
+        orderQueryParams.setUserId(userId);
 
         List<Order> orderList = orderService.getOrders(orderQueryParams);
 
@@ -76,7 +109,7 @@ public class OrderController {
     }
 
     //shopCart(updateCount)
-    //更新orderList(shopCart)
+    //更新orderList
     @PutMapping("/updateOrderList/{userId}")
     public ResponseEntity<List<OrderItem>> updateOrderList(
             @PathVariable Integer userId,
@@ -94,7 +127,7 @@ public class OrderController {
     public ResponseEntity<List<OrderItem>> deleteOrderList(
             @PathVariable Integer userId,
             @PathVariable Integer productId){
-        orderService.deleteOrderItem(productId);
+        orderService.deleteOrderItemByProductId(productId);
         List<OrderItem> orderItemList = orderService.getOrderItemList(userId);
         return ResponseEntity.status(HttpStatus.OK).body(orderItemList);
     }
@@ -114,7 +147,7 @@ public class OrderController {
 
         List<OrderItem> orderList = orderService.getOrderItemList(orderItemQueryParams);
 
-        //取得order總數
+        //取得orderItem總數
         Integer count = orderService.countOrderItem(orderItemQueryParams);
 
         Page<OrderItem> page = new Page<>();
@@ -124,5 +157,31 @@ public class OrderController {
         page.setResults(orderList);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
+    }
+
+    //payment(confirmPayment)
+    //付款後，更新order、product、orderList
+    @PutMapping("/updateOrder/{orderId}")
+    public ResponseEntity<String> updateOrder(
+            @PathVariable Integer orderId) {
+        // 調整order (已付款)
+        orderService.updateOrder(orderId);
+        // 調整商品數量
+        productService.updateStock(orderId);
+        // 刪除orderItem 訂購商品
+        orderService.deleteOrderItemByOrderId(orderId);
+        return ResponseEntity.status(HttpStatus.CREATED).body("付款成功");
+    }
+
+    //orderManage(changeOrderStatus)
+    //更新order狀態
+    @PutMapping("/updateOrder/{orderId}/{status}")
+    public ResponseEntity<String> updateOrder(
+            @PathVariable Integer orderId,
+            @PathVariable String status) {
+        System.out.println(status);
+        orderService.updateOrder(orderId, status);;
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("更改成功");
     }
 }

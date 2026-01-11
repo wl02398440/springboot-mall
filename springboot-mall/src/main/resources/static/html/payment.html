@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>綠界金流</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/payment.css">
+</head>
+<body>
+
+<div class="payment-container">
+    <div class="payment-card">
+        <div class="header">
+            <div class="logo">ECPay <span class="badge">模擬環境</span></div>
+            <p>訂單編號: <span id="orderId"></span></p>
+        </div>
+
+        <div class="amount-section">
+            <div class="label">應付金額</div>
+            <div class="amount">NT$ <span id="amount"></span></div>
+        </div>
+
+        <div class="credit-card-form">
+            <div class="form-group">
+                <label>信用卡號</label>
+                <input type="text" class="input-field" placeholder="0000 0000 0000 0000" value="1111-2222-3333-4444">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" class="card-logo" alt="visa">
+            </div>
+
+            <div class="row">
+                <div class="form-group half">
+                    <label>有效月/年</label>
+                    <input type="text" class="input-field" placeholder="MM/YY" value="12/30">
+                </div>
+                <div class="form-group half">
+                    <label>CVV / CVC</label>
+                    <input type="text" class="input-field" placeholder="123" value="123">
+                </div>
+            </div>
+        </div>
+
+        <button id="btnPay" class="btn-pay">確認付款</button>
+
+    </div>
+</div>
+
+<script src="../js/payment.js"></script>
+</body>
+</html>

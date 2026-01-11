@@ -17,6 +17,7 @@ public class OrderItemRowMapper implements RowMapper<OrderItem> {
         orderItem.setProductId(rs.getInt("product_id"));
         orderItem.setCount(rs.getInt("count"));
         orderItem.setAmount(rs.getInt("amount"));
+        orderItem.setOrderId(rs.getInt("order_id"));
 //product表
         orderItem.setProductName(rs.getString("product_name"));
         orderItem.setImageUrl(rs.getString("image_url"));

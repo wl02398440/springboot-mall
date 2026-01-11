@@ -1,0 +1,327 @@
+* {
+    font-family: 'Microsoft JhengHei', Arial, sans-serif;
+    box-sizing: border-box;
+    /*border: solid 1px #ddd;*/
+}
+
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 導覽列 */
+header {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 80px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #333;
+    cursor: pointer;
+}
+.logo:hover { color: #887538; }
+
+.nav-item {
+    font-size: 24px;
+    color: #555;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.nav-item:hover { color: #887538; }
+
+.nav-item-order{
+    font-size: 24px;
+    color: #72a419;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    color: #555;
+    align-items: center;
+    gap: 20px;
+}
+
+.user {
+    font-size: 22px;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: 1px solid #333;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+.btn:hover { background: #c9cac5; }
+
+/* --- 訂單列表 --- */
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.page-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333;
+    border-left: 5px solid #887538;
+    padding-left: 15px;
+}
+
+/* 列表表頭 */
+.item_header {
+    display: flex;
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    align-items: center;
+}
+
+.item_h {
+    background-color: #e9ecef;
+    color: #555;
+    font-weight: bold;
+    border: none;
+    font-size: 20px;
+}
+
+/* --- 欄位寬度設定 (Flexbox) --- */
+/* 使用 flex 比例分配 */
+.col-id { flex: 1.5; font-weight: bold; color: #2776bb; }
+.col-user { flex: 1.5;}
+.col-price { flex: 2;}
+.col-date { flex: 2.5;}
+.col-detail { flex: 1.5; text-align: center; }
+.col-status { flex: 1.5; text-align: center; }
+.col-operate { flex: 1.5; text-align: center; }
+
+/* 列表內容列 */
+.item_body {
+    transition: 0.2s;
+    border-left: 3px solid transparent;
+    font-size: 18px;
+}
+
+.item_body:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 3px solid #887538;
+}
+
+/* 狀態標籤 */
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+/* 根據狀態變色 */
+.status-unpaid { background-color: #ffeeba; color: #856404; } /* 黃色 */
+.status-paid { background-color: #d4edda; color: #155724; }   /* 綠色 */
+.status-shipped { background-color: #cce5ff; color: #004085; } /* 藍色 */
+.status-cancel { background-color: #f8d7da; color: #721c24; }  /* 紅色 */
+
+/* 操作按鈕 */
+.btn-detail {
+    background: #fff;
+    border: 1px solid #333;
+    padding: 3px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #6a6e6f;
+    transition: 0.2s;
+    font-size: 16px;
+}
+.btn-detail:hover {
+    background: #d2f3f7;
+}
+.btn-shipped:hover {
+    background: #cce5ff;
+}
+.btn-cancel:hover {
+    background: #f8d7da;
+}
+
+.empty-msg {
+    text-align: center;
+    padding: 50px;
+    color: #aaa;
+    font-size: 18px;
+}
+
+/* --- 訂單詳情 --- */
+
+/* 主欄位 */
+.order-modal {
+    width: 600px;
+    max-width: 90%;
+    padding: 30px;
+}
+
+/* 摘要資訊區塊 */
+.order-summary-info {
+    background-color: #f9f9f9;
+    padding: 0 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* 買家、金額 */
+.order-second{
+    margin: 10px;
+}
+
+/* 列表外框 (可捲動) */
+.order-item-list {
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+/* 列表標題 */
+.order-item-header {
+    background-color: #eee;
+    padding: 5px 15px;
+    display: flex;
+    font-size: 18px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 單一商品列 */
+.order-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+}
+.order-item:last-child {
+    border-bottom: none;
+}
+.order-item:hover {
+    background-color: #e9eef6;
+}
+
+/* 圖片 */
+.order-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+/* 中間資訊 */
+.order-info {
+    flex: 1; /* 佔滿剩餘空間 */
+}
+.order-name {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.order-price {
+    font-size: 15px;
+    color: #888;
+}
+
+/* 數量 */
+.order-count {
+    width: 80px;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+}
+
+/* 小計 */
+.order-subtotal {
+    width: 100px;
+    text-align: right;
+    font-size: 16px;
+    color: #e44b4b;
+    font-weight: bold;
+}
+
+/* 底部按鈕 */
+.modal-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Modal 動畫 */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px; cursor: pointer; color: #aaa;
+}
+.modal-title {
+    text-align: center; margin-bottom: 20px; font-size: 24px; color: #333;
+}
+
+/* Transition動畫設定 */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.4s ease;
+}
+
+/* 詳情開始時、退出時 */
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

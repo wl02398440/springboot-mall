@@ -16,15 +16,49 @@
 <div id="app">
 <!--導覽列-->
     <header>
-        <a href="home.html" class="logo">SIMPLESHOP</a>
-        <a href="productMall.html" class="logo logo-shop">商場</a>
+        <div class="header-left">
+            <a href="home.html" class="logo">SIMPLESHOP</a>
+            <a href="productMall.html" class="nav-item">商場</a>
+        </div>
 
         <nav class="nav-links">
             <span class="user">{{ currentUser }}</span>
 
-            <div class="cart-icon" @click="goShopcart">
-                <i class="fas fa-shopping-cart"></i>
+            <div class="cart-wrapper">
+                <div class="cart-icon" @click="goShopcart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" v-if="cart.length > 0">{{ cart.length }}</span>
+                </div>
+
+                <div class="mini-cart-dropdown">
+                    <div class="empty-cart" v-if="cart.length === 0">
+                        <p>尚未選購商品</p>
+                    </div>
+
+                    <div class="has-items" v-else>
+
+                        <ul class="mini-list">
+                            <li v-for="(item, index) in cart" :key="index" class="mini-item">
+                                <img :src="item.imageUrl" class="item-img">
+                                <div class="item-info">
+                                    <div class="item-name">{{ item.productName }}</div>
+                                    <div class="item-price">${{ item.price }}</div>
+                                </div>
+                                <div class="item-count">x {{ item.count }}</div>
+                                <div class="delete-btn" @click="handleDelete(item.productId)" >
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mini-footer">
+                            <div class="total-text">{{ cart.length }} 件商品</div>
+                            <button class="btn-checkout" @click="goShopcart">查看我的購物車</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             <button class="btn" @click="logout">登出</button>
         </nav>
@@ -96,7 +130,7 @@
             </div>
 
             <div class="card-footer">
-                <button class="btn-outline-dark" @click="addToCart(product)">
+                <button class="btn-add-cart" @click="addToCart(product)">
                     Add to cart
                 </button>
             </div>

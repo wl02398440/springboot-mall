@@ -11,9 +11,12 @@ import java.util.List;
 public interface OrderService {
 
     Integer createOrder(Integer userId, CreateOrderRequest createOrderRequest);
+    void updateOrder(Integer orderId);
+    void updateOrder(Integer orderId, String status);
     void createOrderItem(Integer userId, CreateOrderRequest createOrderRequest);
     void updateOrderItem(Integer userId, CreateOrderRequest createOrderRequest);
-    void deleteOrderItem(Integer productId);
+    void deleteOrderItemByProductId(Integer productId);
+    void deleteOrderItemByOrderId(Integer orderId);
     Order getOrderByOrderId(Integer orderId, Integer userId);
     List<Order> getOrders(OrderQueryParams orderQueryParams);
     List<OrderItem> getOrderItemList(OrderItemQueryParams orderItemQueryParams);

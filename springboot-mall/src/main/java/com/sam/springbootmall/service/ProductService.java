@@ -20,6 +20,8 @@ public interface ProductService {
     void deleteProduct(Integer productId);
 
     List<Product> getProducts(ProductQueryParams productQueryParams);
+
+    void updateStock(Integer orderId);
 }
 
 
