@@ -12,6 +12,7 @@ function plusButton(product){
         }, 1500);
     }
 }
+
 //減少數量
 function subButton(product) {
     if (product.count > 0) {
@@ -66,23 +67,6 @@ function fetchBuyItemList(){
         })
 }
 
-//手動輸入購買數量
-// function handleInput(product) {
-//     // 輸入空的、非數字、小於1 預設改回0
-//     if (!product.count || product.count === '' || product.count < 1) {
-//         product.count = 0;
-//     }
-//     // 不能超過庫存
-//     if (product.count > product.stock) {
-//         product.count = product.stock;
-//         // 觸發你原本寫好的紅色錯誤提示
-//         this.$set(product, 'showStockError', true);
-//         setTimeout(() => {
-//             this.$set(product, 'showStockError', false);
-//         }, 1500);
-//     }
-// }
-
 //清空搜尋
 function clearSearch() {
     this.selectedCategory = '';
@@ -107,14 +91,14 @@ async function addToCart(product) {
     // 檢查數量是否大於 0
     if (product.count <= 0) {
         Swal.fire({
-            icon: 'warning', // 圖示
+            icon: 'warning',
             title: '請至少選擇 1 個商品！',
             showConfirmButton: false, // 不顯示確定按鈕
             timer: 1000
         });
         return;
     }
-    // 取得商品在購物車的數量 (如果沒買過就是 0)
+    // 取得商品在購物車的數量
     await this.fetchBuyItemList()
     let currentInCart = this.shopCart[product.productId] || 0;
     console.log("商品購物車數量:", currentInCart)
@@ -172,8 +156,7 @@ async function addToCart(product) {
 
 //刪除商品
 function handleDelete(productId){
-    // 發送 DELETE 請求給後端
-    // API 路徑
+
     fetch(`http://localhost:8080/deleteOrderList/${this.userId}/${productId}`,{
         method: 'DELETE'
     })
@@ -191,7 +174,7 @@ function handleDelete(productId){
         .catch(error => {
             // 錯誤處理
             console.error("發生錯誤:", error);
-            alert(error.message); // 彈出視窗告訴使用者失敗原因
+            alert(error.message); // 彈出視窗
         });
 }
 

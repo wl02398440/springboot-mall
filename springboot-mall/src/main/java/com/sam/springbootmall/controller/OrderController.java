@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Transactional
 @Validated
 @RestController
 @CrossOrigin(origins = "http://localhost:63342", allowCredentials = "true")
@@ -32,25 +31,53 @@ public class OrderController {
     @Autowired
     private ProductService productService;
 
+    //-----------------------------------------------------------------order------------------
+
     //shopCart(checkout)
     //創建order
-    @PostMapping("/users/{userId}/orders")
+    @PostMapping("/{userId}/{userName}/orders")
     public ResponseEntity<Order> createOrder
             (@PathVariable Integer userId,
+             @PathVariable String userName,
              @RequestBody @Valid CreateOrderRequest createdOrderRequest) {
-        Integer orderId = orderService.createOrder(userId, createdOrderRequest);
+        Integer orderId = orderService.createOrder(userId, userName, createdOrderRequest);
 
         Order order = orderService.getOrderByOrderId(orderId, userId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 
+    //payment(confirmPayment)
+    //付款後，更新order、product、orderList
+    @PutMapping("/updateOrder/{orderId}")
+    public ResponseEntity<String> updateOrder(
+            @PathVariable Integer orderId) {
+        // 調整商品數量
+        productService.updateStock(orderId);
+        // 調整order (已付款) (檢查庫存是否足夠)
+        orderService.updateOrder(orderId);
+        // 刪除orderItem 訂購商品
+        orderService.deleteOrderItemByOrderId(orderId);
+        return ResponseEntity.status(HttpStatus.CREATED).body("付款成功");
+    }
+
+    //orderManage(changeOrderStatus)
+    //更新order狀態(取消、出貨)
+    @PutMapping("/updateOrder/{orderId}/{status}")
+    public ResponseEntity<String> updateOrder(
+            @PathVariable Integer orderId,
+            @PathVariable String status) {
+        orderService.updateOrder(orderId, status);;
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("更改成功");
+    }
+
     //orderManage(fetchOrders)
     //取得order
     @GetMapping("orders")
     public ResponseEntity<Page<Order>> getOrders
-            (@RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
-             @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
+    (@RequestParam(defaultValue = "50") @Max(1000) @Min(0) Integer limit,
+     @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
         OrderQueryParams orderQueryParams = new OrderQueryParams();
         orderQueryParams.setLimit(limit);
         orderQueryParams.setOffset(offset);
@@ -73,9 +100,9 @@ public class OrderController {
     //取得userOrder
     @GetMapping("orders/{userId}")
     public ResponseEntity<Page<Order>> getOrdersByUserId
-        (@PathVariable Integer userId,
-         @RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
-         @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
+    (@PathVariable Integer userId,
+     @RequestParam(defaultValue = "50") @Max(1000) @Min(0) Integer limit,
+     @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
         OrderQueryParams orderQueryParams = new OrderQueryParams();
         orderQueryParams.setLimit(limit);
         orderQueryParams.setOffset(offset);
@@ -94,6 +121,8 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
     }
+
+    //-------------------------------------------------------------------orderList-------------
 
     //productMall(addToCart)
     //創建或更新orderList
@@ -121,25 +150,14 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(orderItemList);
     }
 
-    //shopCart(handleDelete)
-    //刪除orderList
-    @DeleteMapping("/deleteOrderList/{userId}/{productId}")
-    public ResponseEntity<List<OrderItem>> deleteOrderList(
-            @PathVariable Integer userId,
-            @PathVariable Integer productId){
-        orderService.deleteOrderItemByProductId(productId);
-        List<OrderItem> orderItemList = orderService.getOrderItemList(userId);
-        return ResponseEntity.status(HttpStatus.OK).body(orderItemList);
-    }
-
     //productMall(fetchBuyItemList)
     //shopCart(fetchBuyItemList)
     //取得orderListByUser
     @GetMapping("/getOrderList/{userId}")
     public ResponseEntity<Page<OrderItem>> getOrderListByUserId
-            (@PathVariable Integer userId,
-             @RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
-             @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
+    (@PathVariable Integer userId,
+     @RequestParam(defaultValue = "10") @Max(1000) @Min(0) Integer limit,
+     @RequestParam(defaultValue = "0") @Min(0) Integer offset) {
         OrderItemQueryParams orderItemQueryParams = new OrderItemQueryParams();
         orderItemQueryParams.setUserId(userId);
         orderItemQueryParams.setLimit(limit);
@@ -159,29 +177,15 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(page);
     }
 
-    //payment(confirmPayment)
-    //付款後，更新order、product、orderList
-    @PutMapping("/updateOrder/{orderId}")
-    public ResponseEntity<String> updateOrder(
-            @PathVariable Integer orderId) {
-        // 調整order (已付款)
-        orderService.updateOrder(orderId);
-        // 調整商品數量
-        productService.updateStock(orderId);
-        // 刪除orderItem 訂購商品
-        orderService.deleteOrderItemByOrderId(orderId);
-        return ResponseEntity.status(HttpStatus.CREATED).body("付款成功");
+    //shopCart(handleDelete)
+    //刪除orderList
+    @DeleteMapping("/deleteOrderList/{userId}/{productId}")
+    public ResponseEntity<List<OrderItem>> deleteOrderList(
+            @PathVariable Integer userId,
+            @PathVariable Integer productId){
+        orderService.deleteOrderItemByProductId(productId);
+        List<OrderItem> orderItemList = orderService.getOrderItemList(userId);
+        return ResponseEntity.status(HttpStatus.OK).body(orderItemList);
     }
 
-    //orderManage(changeOrderStatus)
-    //更新order狀態
-    @PutMapping("/updateOrder/{orderId}/{status}")
-    public ResponseEntity<String> updateOrder(
-            @PathVariable Integer orderId,
-            @PathVariable String status) {
-        System.out.println(status);
-        orderService.updateOrder(orderId, status);;
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("更改成功");
-    }
 }

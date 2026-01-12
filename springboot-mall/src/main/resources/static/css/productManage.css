@@ -1,4 +1,3 @@
-/* productManage.css */
 
 * {
     font-family: 'Microsoft JhengHei', Arial, sans-serif;
@@ -216,7 +215,7 @@ header {
     min-height: 100px;
 }
 
-/*欄位寬度設定 (總和 100%)*/
+/*欄位寬度設定*/
 .col-img      { flex: 0 0 16%; display: flex; flex-direction: column;
                 align-items: center; justify-content: center; }
 .col-name     { flex: 0 0 25%; padding: 0 10px; }

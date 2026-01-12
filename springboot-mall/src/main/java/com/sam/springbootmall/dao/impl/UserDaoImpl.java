@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 
     public Integer createUser(UserRegisterRequest userRegisterRequest) {
 
-        String sql = "insert into user(email, password, created_date, last_modified_date) " +
+        String sql = "insert into users(email, password, created_date, last_modified_date) " +
                 "values (:email, :password, :createdDate, :lastModifiedDate) ";
         Map<String, Object> map = new HashMap<>();
         map.put("email", userRegisterRequest.getEmail());
@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
 
     public User getUserById(Integer userId) {
         String sql = "select user_id, email, password, created_date, last_modified_date " +
-                "from user where user_id = :userId";
+                "from users where user_id = :userId";
         Map<String, Object> map = new HashMap<>();
         map.put("userId", userId);
         RowMapper userRowMapper = new UserRowMapper();
@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao {
 
     public User getUserByEmail(String email) {
         String sql = "select user_id, email, password, created_date, last_modified_date " +
-                "from user where email = :email";
+                "from users where email = :email";
         Map<String, Object> map = new HashMap<>();
         map.put("email", email);
         List<User> userList = namedParameterJdbcTemplate.query(sql, map, new UserRowMapper());

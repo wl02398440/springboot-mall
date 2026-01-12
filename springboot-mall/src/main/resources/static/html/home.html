@@ -141,9 +141,9 @@
                                v-model="loginForm.captcha"
                                style="width: 60%;"
                                @keyup.enter="login"> <img :src="captchaUrl"
-                              @click="refreshCaptcha"
-                              style="cursor: pointer; height: 40px; border: 1px solid #ddd;"
-                              title="點擊更換圖片">
+                               @click="refreshCaptcha"
+                               style="cursor: pointer; height: 40px; border: 1px solid #ddd;"
+                               title="點擊更換圖片">
                     </div>
                 </div>
                 <button class="btn" style="width: 100%;" @click="login">登入</button>

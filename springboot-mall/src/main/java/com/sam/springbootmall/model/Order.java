@@ -7,6 +7,7 @@ public class Order {
 
     private Integer orderId;
     private Integer userId;
+    private String userName;
     private Integer totalAmount;
     private Date createdDate;
     private Date lastModifiedDate;
@@ -27,6 +28,14 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Integer getOrderId() {

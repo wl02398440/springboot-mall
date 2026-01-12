@@ -8,11 +8,14 @@ import com.sam.springbootmall.model.OrderItem;
 import com.sam.springbootmall.model.Product;
 import com.sam.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-
+@Transactional
 @Service
 public class productServiceImpl implements ProductService {
 
@@ -22,8 +25,30 @@ public class productServiceImpl implements ProductService {
     private OrderDao orderDao;
 
     @Override
-    public Integer countProduct(ProductQueryParams productQueryParams) {
-        return productDao.countProduct(productQueryParams);
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
+    }
+
+    //訂單付款調整庫存
+    @Override
+    public void updateStock(Integer orderId) {
+        List<OrderItem> buyItemList =
+                orderDao.getBuyItemListByOrderId(orderId);
+
+        for (OrderItem buyItem : buyItemList) {
+            //檢查庫存是否足夠
+            if (buyItem.getCount() > buyItem.getStock()) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                        buyItem.getProductName() + "庫存剩" + buyItem.getStock() +"個");
+            }
+            productDao.updateStock(buyItem.getProductId(),
+                    buyItem.getStock() - buyItem.getCount());
+        }
+    }
+
+    @Override
+    public void updateProduct(Integer productId, ProductRequest productRequest) {
+        productDao.updateProduct(productId, productRequest);
     }
 
     @Override
@@ -36,34 +61,16 @@ public class productServiceImpl implements ProductService {
         return productDao.getProductById(productId);
     }
 
-    public Integer createProduct(ProductRequest productRequest) {
-        return productDao.createProduct(productRequest);
-    }
-
-    @Override
-    public void updateProduct(Integer productId, ProductRequest productRequest) {
-        productDao.updateProduct(productId, productRequest);
-    }
-
     @Override
     public void deleteProduct(Integer productId) {
         productDao.deleteProduct(productId);
     }
 
-    //訂單付款調整庫存
     @Override
-    public void updateStock(Integer orderId) {
-
-        List<OrderItem> orderItemList =
-                orderDao.getOrderItemListByOrderId(orderId);
-
-        for (OrderItem orderItem : orderItemList) {
-            Integer productId = orderItem.getProductId();
-            Product product = productDao.getProductById(productId);
-            Integer count = product.getStock() - orderItem.getCount();
-            productDao.updateStock(productId, count);
-        }
+    public Integer countProduct(ProductQueryParams productQueryParams) {
+        return productDao.countProduct(productQueryParams);
     }
+
 }
 
 

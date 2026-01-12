@@ -26,6 +26,32 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    //productManager(saveProduct)
+    //新增商品
+    @PostMapping("/products")
+    public ResponseEntity<Product> createProduct
+    (@RequestBody @Valid ProductRequest productRequest){
+        Integer productId = productService.createProduct(productRequest);
+        Product product = productService.getProductById(productId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(product);
+    }
+
+    //productManager(saveProduct)
+    //更改商品資訊
+    @PutMapping("/products/{productId}")
+    public ResponseEntity<Product> updateProduct
+    (@PathVariable Integer productId,
+     @Valid @RequestBody ProductRequest productRequest){
+        Product product = productService.getProductById(productId);
+        if(product == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        productService.updateProduct(productId,productRequest);
+        Product updatedProduct = productService.getProductById(productId);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedProduct);
+    }
+
     //productMall(fetchProducts)
     //取得商品資料
     @GetMapping("/products")
@@ -63,27 +89,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(page);
     }
 
-    @DeleteMapping("/products/{productId}")
-    public ResponseEntity<?> deleteProduct(@PathVariable Integer productId){
-
-        productService.deleteProduct(productId);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
-
-    @PutMapping("/products/{productId}")
-    public ResponseEntity<Product> updateProduct
-            (@PathVariable Integer productId,
-             @Valid @RequestBody ProductRequest productRequest){
-        Product product = productService.getProductById(productId);
-        if(product == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-
-        productService.updateProduct(productId,productRequest);
-        Product updatedProduct = productService.getProductById(productId);
-        return ResponseEntity.status(HttpStatus.OK).body(updatedProduct);
-    }
-
+    //取得商品資訊(by productId)
     @GetMapping("/products/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable Integer productId){
         Product product = productService.getProductById(productId);
@@ -93,12 +99,13 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    //新增商品
-    @PostMapping("/products")
-    public ResponseEntity<Product> createProduct
-            (@RequestBody @Valid ProductRequest productRequest){
-        Integer productId = productService.createProduct(productRequest);
-        Product product = productService.getProductById(productId);
-        return ResponseEntity.status(HttpStatus.CREATED).body(product);
+    //productManager(deleteProduct)
+    //刪除商品
+    @DeleteMapping("/products/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Integer productId){
+
+        productService.deleteProduct(productId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
 }

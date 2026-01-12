@@ -11,6 +11,7 @@ function plusButton(product){
         }, 1500);
     }
 }
+
 //減少數量
 function subButton(product) {
     if (product.count > 0) {
@@ -28,7 +29,7 @@ function handleInput(product) {
     // 不能超過庫存
     if (product.count > product.stock) {
         product.count = product.stock;
-        // 觸發你原本寫好的紅色錯誤提示
+        // 觸發錯誤提示
         this.$set(product, 'showStockError', true);
         setTimeout(() => {
             this.$set(product, 'showStockError', false);
@@ -75,8 +76,7 @@ function updateCount(product) {
 
 //刪除商品
 function handleDelete(productId){
-    // 發送 DELETE 請求給後端
-    // API 路徑
+
     fetch(`http://localhost:8080/deleteOrderList/${this.userId}/${productId}`,{
         method: 'DELETE'
     })
@@ -94,14 +94,14 @@ function handleDelete(productId){
         .catch(error => {
             // 錯誤處理
             console.error("發生錯誤:", error);
-            alert(error.message); // 彈出視窗告訴使用者失敗原因
+            alert(error.message); // 彈出視窗
         });
 }
 
 //載入購物車
 function fetchBuyItemList(){
     // 發送 GET 請求給後端
-    fetch(`http://localhost:8080/getOrderList/${this.userId}`)   // API 路徑
+    fetch(`http://localhost:8080/getOrderList/${this.userId}`)
         .then(response => {
             // 檢查後端回應狀態
             if (!response.ok) {
@@ -125,7 +125,7 @@ function fetchBuyItemList(){
         .catch(error => {
             // 錯誤處理
             console.error("發生錯誤:", error);
-            alert(error.message); // 彈出視窗告訴使用者失敗原因
+            alert(error.message); // 彈出視窗
         });
 }
 
@@ -153,8 +153,7 @@ function checkout(){
         didOpen: () => { Swal.showLoading() }
     });
 
-    // 發送 API
-    fetch(`http://localhost:8080/users/${this.userId}/orders`, {
+    fetch(`http://localhost:8080/${this.userId}/${this.currentUser}/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderRequest),

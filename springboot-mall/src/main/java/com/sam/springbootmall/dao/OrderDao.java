@@ -9,8 +9,7 @@ import java.util.List;
 
 public interface OrderDao {
 
-    Integer createOrder(Integer userId, Integer totalAmount);
-
+    Integer createOrder(Integer userId,String userName, Integer totalAmount);
     void createOrderItem(Integer userId, OrderItem orderItem);
     void updateOrderItemByMall(Integer userId, OrderItem orderItem);
     void updateOrderItemByShopCart(Integer userId, OrderItem orderItem);

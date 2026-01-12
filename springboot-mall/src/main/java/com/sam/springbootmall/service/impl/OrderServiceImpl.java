@@ -15,11 +15,14 @@ import com.sam.springbootmall.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -34,10 +37,11 @@ public class OrderServiceImpl implements OrderService {
 
     private final static Logger log = LoggerFactory.getLogger(OrderServiceImpl.class);
 
+    //------------------------------------------order--------------------------------------------
+
     //創建 order
-    @Transactional
     @Override
-    public Integer createOrder(Integer userId, CreateOrderRequest createOrderRequest) {
+    public Integer createOrder(Integer userId,String userName, CreateOrderRequest createOrderRequest) {
 
         int totalAmount = 0;
         for (BuyItem buyItem : createOrderRequest.getBuyItemList()) {
@@ -48,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
             totalAmount += amount;
         }
         //創建訂單
-        Integer orderId = orderDao.createOrder(userId, totalAmount);
+        Integer orderId = orderDao.createOrder(userId, userName, totalAmount);
 
         //更改orderItem的orderId
         for (BuyItem buyItem : createOrderRequest.getBuyItemList()) {
@@ -62,15 +66,47 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    //update訂單狀態(未付款改為已付款)
+    @Override
+    public void updateOrder(Integer orderId) {
+        orderDao.updateOrder(orderId);
+    }
+
+    //update訂單狀態(取消訂單、出貨)
+    @Override
+    public void updateOrder(Integer orderId, String status) {
+        orderDao.updateOrder(orderId, status);
+    }
+
+    //取得order
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+        List<Order> orders = orderDao.getOrders(orderQueryParams);
+
+        for (Order order : orders) {
+            order.setOrderItems(orderDao.getBuyItemListByOrderId(order.getOrderId()));
+        }
+        return orders;
+    }
+
+    //取得order by orderId
+    @Override
+    public Order getOrderByOrderId(Integer orderId, Integer userId) {
+        Order order = orderDao.getOrderByOrderId(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemListByOrderId(orderId);
+        order.setOrderItems(orderItemList);
+        return order;
+    }
+
+    //----------------------------------------------orderItem-------------------------------
+
     //創建或更改OrderItem
-    @Transactional
     @Override
     public void createOrderItem(Integer userId, CreateOrderRequest createOrderRequest) {
         //取得購物資訊
         BuyItem buyItem = createOrderRequest.getBuyItemList().get(0);
         Product product = productDao.getProductById(buyItem.getProductId());
-        //扣除商品庫存
-//        productDao.updateStock(product.getProductId(), product.getStock() - buyItem.getCount());
 
         //計算總價
         int amount = product.getPrice() * buyItem.getCount();
@@ -100,7 +136,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
     //更改OrderItem(shopCart)
-    @Transactional
     @Override
     public void updateOrderItem(Integer userId, CreateOrderRequest createOrderRequest) {
         //取得更改資訊
@@ -117,26 +152,19 @@ public class OrderServiceImpl implements OrderService {
         orderDao.updateOrderItemByShopCart(userId, orderItemUser);
     }
 
-//    取得order by orderId
+    //取得orderItemList
     @Override
-    public Order getOrderByOrderId(Integer orderId, Integer userId) {
-        Order order = orderDao.getOrderByOrderId(orderId);
+    public List<OrderItem> getOrderItemList(OrderItemQueryParams orderItemQueryParams) {
+        List<OrderItem> ordeItemrList = orderDao.getOrderItemListByUserId(orderItemQueryParams);
 
-        List<OrderItem> orderItemList = orderDao.getOrderItemListByOrderId(orderId);
-        order.setOrderItems(orderItemList);
-        return order;
+        return ordeItemrList;
     }
 
-    //update訂單狀態(付款後)
+    //取得orderItemList by userId
     @Override
-    public void updateOrder(Integer orderId) {
-        orderDao.updateOrder(orderId);
-    }
-
-    //update訂單狀態(取消訂單、出貨)
-    @Override
-    public void updateOrder(Integer orderId, String status) {
-        orderDao.updateOrder(orderId, status);
+    public List<OrderItem> getOrderItemList(Integer userId) {
+        List<OrderItem> orderItemList = orderDao.getOrderItemListByUserId(userId);
+        return orderItemList;
     }
 
     //delete OrderItem by productId
@@ -151,6 +179,7 @@ public class OrderServiceImpl implements OrderService {
         orderDao.deleteOrderItemByOrderId(orderId);
     }
 
+    //------------------------------------------------------util-----------------------------------
 
     //計算order數量
     @Override
@@ -163,31 +192,6 @@ public class OrderServiceImpl implements OrderService {
     public Integer countOrderItem(OrderItemQueryParams orderItemQueryParams) {
         return orderDao.countOrderItem(orderItemQueryParams);
     }
-
-    @Override
-    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
-        List<Order> orders = orderDao.getOrders(orderQueryParams);
-
-        for (Order order : orders) {
-            order.setOrderItems(orderDao.getBuyItemListByOrderId(order.getOrderId()));
-        }
-        return orders;
-    }
-
-    //取得orderItemList
-    @Override
-    public List<OrderItem> getOrderItemList(OrderItemQueryParams orderItemQueryParams) {
-        List<OrderItem> ordeItemrList = orderDao.getOrderItemListByUserId(orderItemQueryParams);
-
-        return ordeItemrList;
-    }
-
-    @Override
-    public List<OrderItem> getOrderItemList(Integer userId) {
-        List<OrderItem> orderItemList = orderDao.getOrderItemListByUserId(userId);
-        return orderItemList;
-    }
-
 
     //    //創建 order
 //    @Transactional
@@ -234,7 +238,5 @@ public class OrderServiceImpl implements OrderService {
 //        return orderId;
 //
 //    }
-
-
 
 }

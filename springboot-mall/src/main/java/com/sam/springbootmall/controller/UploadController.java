@@ -14,6 +14,7 @@ public class UploadController {
     @Autowired
     private ImageService imageService;
 
+    //圖片傳輸
     @PostMapping("/upload")
     public String upload(@RequestParam("file") MultipartFile file) {
         try {

@@ -1,3 +1,4 @@
+
 // 等待頁面載入完成
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -45,12 +46,18 @@ function confirmPayment(orderId) {
                         window.location.href = 'home.html';
                     });
                 } else {
-                    Swal.fire('付款失敗', '伺服器回應錯誤', 'error');
+                    return response.json().then(errorBody => {
+                        let msg = errorBody.message;
+                        throw new Error(msg);
+                    });
                 }
             })
-            .catch(err => {
-                console.error(err);
-                Swal.fire('網路錯誤', '無法連線至伺服器', 'error');
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'warning',
+                    title: error.message,
+                });
             });
     });
 }

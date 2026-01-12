@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    Integer createOrder(Integer userId, CreateOrderRequest createOrderRequest);
+    Integer createOrder(Integer userId,String userName, CreateOrderRequest createOrderRequest);
     void updateOrder(Integer orderId);
     void updateOrder(Integer orderId, String status);
     void createOrderItem(Integer userId, CreateOrderRequest createOrderRequest);

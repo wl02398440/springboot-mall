@@ -119,8 +119,7 @@ header {
     font-size: 20px;
 }
 
-/* --- 欄位寬度設定 (Flexbox) --- */
-/* 使用 flex 比例分配 */
+/* --- 欄位寬度設定 --- */
 .col-id { flex: 1.5; font-weight: bold; color: #2776bb; }
 .col-price { flex: 2;}
 .col-date { flex: 2.5;}

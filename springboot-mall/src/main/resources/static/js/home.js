@@ -73,9 +73,9 @@ function register() {
 function login(){
     // 前端防呆
     if (!this.loginForm.email || !this.loginForm.password
-        || !this.loginForm.password ) {
+        || !this.loginForm.captcha ) {
         Swal.fire({
-            icon: 'warning', // 圖示
+            icon: 'warning',
             title: '請輸入完整資訊 (含驗證碼)',
             showConfirmButton: false, // 不顯示確定按鈕
             timer: 1000
@@ -83,7 +83,7 @@ function login(){
         return;
     }
     // 發送 POST 請求給後端
-    fetch('http://localhost:8080/users/login', {  // API 路徑
+    fetch('http://localhost:8080/users/login', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -108,7 +108,7 @@ function login(){
             // 登入成功後的處理
             let shortName = userData.email.split('@')[0];
             // 確認是否管理者
-            if (shortName === `www1`){
+            if (shortName === `admin`){
                 this.isManager = true;
             }
             console.log("管理者:", shortName);
@@ -121,12 +121,12 @@ function login(){
             this.fetchCartInfo(); //載入購物車
             console.log("登入成功，使用者資料:", userData);
             Swal.fire({
-                icon: 'success', // 圖示
+                icon: 'success',
                 title: '歡迎回來，' + userData.userName,
                 showConfirmButton: false, // 不顯示確定按鈕
                 timer: 1000
             });
-            this.showLogin = false; // 關閉登入視窗
+            this.showLogin = false;
             // 清空表單
             this.loginForm.email = '';
             this.loginForm.password = '';
@@ -135,11 +135,10 @@ function login(){
             // 錯誤處理
             console.error("發生錯誤:", error);
             Swal.fire({
-                icon: 'warning', // 圖示
+                icon: 'warning',
                 title: error.message,
                 showConfirmButton: false, // 不顯示確定按鈕
-                timer: 10000,
-
+                timer: 1000,
             });
         });
 }
@@ -150,7 +149,7 @@ function shopNow() {
         location.href = '../html/productMall.html';
     } else {
         Swal.fire({
-            icon: 'warning', // 圖示
+            icon: 'warning',
             title: '請先登入會員才能開始選購喔！',
             showConfirmButton: false, // 不顯示確定按鈕
             timer: 1000
@@ -166,7 +165,7 @@ function orderUser() {
         location.href = '../html/orderUser.html';
     } else {
         Swal.fire({
-            icon: 'warning', // 圖示
+            icon: 'warning',
             title: '請先登入會員喔！',
             showConfirmButton: false, // 不顯示確定按鈕
             timer: 1000
@@ -181,11 +180,13 @@ function switchModal() {
     this.showLogin = false;
     this.showRegister = true;
 }
+
 // 清空欄位
 function claen(){
     this.loginForm.email ='';
     this.loginForm.password ='';
 }
+
 // 刷新驗證碼
 function refreshCaptcha(){
     // 加時間戳記強制瀏覽器重新抓取
@@ -197,15 +198,18 @@ function refreshCaptcha(){
 function startSlide() {
     this.timer = setInterval(this.nextSlide, 3000);
 }
+
 // 停止自動撥放
 function stopSlide() {
     clearInterval(this.timer);
     this.timer = null;
 }
+
 // 下一個頁面
 function nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.banners.length;
 }
+
 // 上一個頁面
 function prevSlide() {
     this.currentSlide = (this.currentSlide - 1 + this.banners.length) % this.banners.length;
@@ -248,7 +252,7 @@ function handleDelete(productId){
         .catch(error => {
             // 錯誤處理
             console.error("發生錯誤:", error);
-            alert(error.message); // 彈出視窗告訴使用者失敗原因
+            alert(error.message); // 彈出視窗
         });
 }
 
@@ -259,7 +263,7 @@ new Vue({
         showLogin: false,
         showRegister: false,
         loginForm: {
-            email: 'www1@gmail.com',
+            email: 'admin@gmail.com',
             password: '111',
             captcha: ''
         },

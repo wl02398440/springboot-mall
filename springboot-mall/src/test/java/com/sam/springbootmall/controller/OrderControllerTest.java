@@ -40,12 +40,12 @@ public class OrderControllerTest {
 
         BuyItem buyItem1 = new BuyItem();
         buyItem1.setProductId(1);
-        buyItem1.setQuantity(5);
+        buyItem1.setCount(5);
         buyItemList.add(buyItem1);
 
         BuyItem buyItem2 = new BuyItem();
         buyItem2.setProductId(2);
-        buyItem2.setQuantity(2);
+        buyItem2.setCount(2);
         buyItemList.add(buyItem2);
 
         createOrderRequest.setBuyItemList(buyItemList);
@@ -93,7 +93,7 @@ public class OrderControllerTest {
 
         BuyItem buyItem1 = new BuyItem();
         buyItem1.setProductId(1);
-        buyItem1.setQuantity(1);
+        buyItem1.setCount(1);
         buyItemList.add(buyItem1);
 
         createOrderRequest.setBuyItemList(buyItemList);
@@ -117,7 +117,7 @@ public class OrderControllerTest {
 
         BuyItem buyItem1 = new BuyItem();
         buyItem1.setProductId(100);
-        buyItem1.setQuantity(1);
+        buyItem1.setCount(1);
         buyItemList.add(buyItem1);
 
         createOrderRequest.setBuyItemList(buyItemList);
@@ -141,7 +141,7 @@ public class OrderControllerTest {
 
         BuyItem buyItem1 = new BuyItem();
         buyItem1.setProductId(1);
-        buyItem1.setQuantity(10000);
+        buyItem1.setCount(10000);
         buyItemList.add(buyItem1);
 
         createOrderRequest.setBuyItemList(buyItemList);

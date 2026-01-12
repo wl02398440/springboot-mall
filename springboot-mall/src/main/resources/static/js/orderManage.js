@@ -1,3 +1,4 @@
+
 // 載入訂單
 function fetchOrders() {
         fetch(`http://localhost:8080/orders`, {
@@ -91,7 +92,7 @@ function cancelOrder(orderId) {
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '取消'
+        confirmButtonText: '確定'
     }).then((result) => {
         if (result.isConfirmed) {
             fetch(`http://localhost:8080/updateOrder/${orderId}/cancel`, {

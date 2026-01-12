@@ -1,3 +1,4 @@
+
 // 載入訂單
 function fetchOrders() {
         fetch(`http://localhost:8080/orders/${this.userId}`, {
@@ -17,13 +18,13 @@ function fetchOrders() {
     });
 }
 
-//結帳
+// 結帳
 function checkout(orderId, totalAmount) {
     window.location.href =
         `payment.html?oid=${orderId}&total=${totalAmount}`;
 }
 
-//取消訂單
+// 取消訂單
 function cancelOrder(orderId) {
     Swal.fire({
         title: '確定要取消?',
@@ -32,7 +33,7 @@ function cancelOrder(orderId) {
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: '取消'
+        confirmButtonText: '確定'
     }).then((result) => {
         if (result.isConfirmed) {
             fetch(`http://localhost:8080/updateOrder/${orderId}/cancel`, {
@@ -94,7 +95,6 @@ new Vue({
     mixins: [authMixin],
     data: {
         orderList: [],
-        // 彈窗控制變數
         showModal: false,
         currentOrder: {},     // 存放當前選中的訂單資訊(by orderId)
         currentOrderItems: [] // 存放當前訂單的商品清單

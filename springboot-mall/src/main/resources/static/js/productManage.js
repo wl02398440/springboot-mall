@@ -1,3 +1,4 @@
+
 // 載入商品列表
 function fetchManageProducts() {
     let url = `http://localhost:8080/products?limit=${this.limit}&offset=${this.offset}`;
@@ -39,7 +40,6 @@ function clearSearch() {
 // 分頁
 function changePage(page) {
     if (page < 1 || page > this.totalPages) return;
-    // this.selectedCategory = '';
     this.offset = (page - 1) * this.limit;
     this.fetchManageProducts();
     // 換頁後到最上方
@@ -54,10 +54,9 @@ function addProduct() {
         imageUrl: '',
         price: 0,
         stock: 0,
-        category: 'FOOD', // 預設
+        category: 'FOOD',
         isNew: true
     };
-
     // 加在上面
     this.productList.unshift(newProduct);
 }
@@ -158,15 +157,12 @@ function handleFileUpload(event, product) {
     const file = event.target.files[0];
     if (!file) return;
 
-    // 限制檔案大小 (例如 2MB)
+    // 限制檔案大小
     if (file.size > 2 * 1024 * 1024) {
         Swal.fire('檔案過大', '請上傳小於 2MB 的圖片', 'warning');
         return;
     }
     console.log("選取的檔案:", file);
-
-    // --- 方案 A: 真實上傳 (需要後端 API 配合) ---
-    // 這裡示範如果您有後端 API 該怎麼寫：
 
     const formData = new FormData();
     formData.append('file', file);
@@ -175,20 +171,10 @@ function handleFileUpload(event, product) {
         method: 'POST',
         body: formData
     })
-    .then(res => res.text()) // 假設後端回傳圖片網址字串
+    .then(res => res.text()) // 後端回傳圖片網址字串
     .then(imageUrl => {
         product.imageUrl = imageUrl; // 將回傳的網址填入欄位
     });
-
-
-    // --- 方案 B: 前端預覽 (暫時使用，不用後端) ---
-    // 這會產生一個暫時的網址 (blob:http://...)，讓你可以馬上看到圖
-    // 缺點：沒辦法真正存到資料庫供其他人看
-    // const previewUrl = URL.createObjectURL(file);
-    // product.imageUrl = previewUrl;
-    //
-    // // 清空 input，這樣下次選同一個檔案才會觸發 change 事件
-    // event.target.value = '';
 }
 
 new Vue({

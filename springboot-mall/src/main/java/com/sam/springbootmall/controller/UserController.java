@@ -17,6 +17,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     // 註冊
     @PostMapping("/users/register")
     public ResponseEntity<User> register(@RequestBody @Valid UserRegisterRequest userRegisterRequest) {
@@ -25,6 +26,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
 
     }
+
     // 登入
     @PostMapping("/users/login")
     public ResponseEntity<User> login
@@ -42,6 +44,7 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }
+
     // 搜尋user
     @GetMapping("/users/{userId}")
     public ResponseEntity<User> getUserById(@PathVariable Integer userId) {

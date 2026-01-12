@@ -60,6 +60,17 @@ header {
     cursor: pointer;
 }
 
+.nav-item-order {
+    font-size: 24px;
+    color: #555;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.nav-item-order:hover {
+    color: #887538;
+}
+
 .nav-links {
     display: flex;
     color: #555;
@@ -106,7 +117,7 @@ header {
 /* --- 下拉選單 (Mini Cart) --- */
 .mini-cart-dropdown {
     position: absolute;
-    top: 100%; /* 在 wrapper 的正下方 */
+    top: 100%;
     right: -10px;
     width: 340px;
     background-color: #fff;
@@ -139,7 +150,7 @@ header {
 }
 
 .mini-list {
-    max-height: 280px; /* 超過高度就捲動 */
+    max-height: 280px;
     overflow-y: auto;
     list-style: none;
     margin: 0;
@@ -249,9 +260,9 @@ header {
 /*搜尋列*/
 .search-bar {
     display: flex;
-    justify-content: center; /* 置中 */
-    gap: 10px;               /* 元素之間的間距 */
-    margin: 20px 0;          /* 上下留白 */
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .search-input {
@@ -317,8 +328,8 @@ header {
 
 /* 當前頁碼 (Active) */
 .page-number.active {
-    background-color: #565863; /* 深色背景 */
-    color: white;           /* 白字 */
+    background-color: #565863;
+    color: white;
     border-color: #333;
 }
 
@@ -333,7 +344,7 @@ header {
 .product-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px; /* 卡片之間的間距 */
+    gap: 30px;
 }
 
 /*卡片設計*/
@@ -342,7 +353,6 @@ header {
     border: 1px solid rgba(0,0,0,0.125);
     border-radius: 4px;
     overflow: hidden; /* 確保內容不超出圓角 */
-    /*position: relative; */
     display: flex;
     flex-direction: column; /* 讓內容垂直排列 */
     height: 100%; /* 讓同列卡片等高 */
@@ -357,12 +367,10 @@ header {
 .card-img-top {
     width: 100%;
     height: 200px;
-    /*background-color: #dee2e6;*/
     object-fit: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    /*color: #6c757d;*/
     font-size: 19.2px;
 }
 

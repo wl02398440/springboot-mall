@@ -29,7 +29,7 @@
 
         <div class="item_header item_h">
             <div class="col-id">訂單編號</div>
-            <div class="col-user">用戶編號</div>
+            <div class="col-user">用戶名稱</div>
             <div class="col-price">訂單總價</div>
             <div class="col-date">最後修改時間</div>
             <div class="col-detail">商品明細</div>
@@ -43,7 +43,7 @@
 
             <div class="col-user">
                 <i class="fas fa-user-circle" style="color: #887538; margin-right: 5px;"></i>
-                {{ order.userId }}
+                {{ order.userName }}
             </div>
 
             <div class="col-price">NT$ {{ order.totalAmount }}</div>
