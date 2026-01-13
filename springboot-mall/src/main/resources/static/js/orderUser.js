@@ -90,6 +90,46 @@ function closeModal() {
     this.showModal = false;
 }
 
+//載入購物車
+function fetchBuyItemList(){
+    // 發送 GET 請求給後端
+    return fetch(`http://localhost:8080/getOrderList/${this.userId}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log("後端回傳的購物車資料:", data);
+            this.shopCart = {};
+            this.cart = data.results;
+            data.results.forEach(item => {
+                this.shopCart[item.productId] = item.count;
+            });
+            console.log("購物車資訊載入完成:", this.shopCart);
+        })
+}
+
+//刪除商品
+function handleDelete(productId){
+
+    fetch(`http://localhost:8080/deleteOrderList/${this.userId}/${productId}`,{
+        method: 'DELETE'
+    })
+        .then(response => {
+            // 檢查後端回應狀態
+            if (!response.ok) {
+                throw new Error('網路回應不正常');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("後端回傳的資料:", data);
+            this.fetchBuyItemList();
+        })
+        .catch(error => {
+            // 錯誤處理
+            console.error("發生錯誤:", error);
+            alert(error.message); // 彈出視窗
+        });
+}
+
 new Vue({
     el: '#app',
     mixins: [authMixin],
@@ -97,11 +137,14 @@ new Vue({
         orderList: [],
         showModal: false,
         currentOrder: {},     // 存放當前選中的訂單資訊(by orderId)
-        currentOrderItems: [] // 存放當前訂單的商品清單
+        currentOrderItems: [], // 存放當前訂單的商品清單
+        shopCart: {},
+        cart: []
     },
     mounted() {
         this.checkLoginStatus(); // 呼叫共用的
         this.fetchOrders();
+        this.fetchBuyItemList();
     },
     methods: {
         fetchOrders,
@@ -111,5 +154,7 @@ new Vue({
         closeModal,
         checkout,
         cancelOrder,
+        fetchBuyItemList,
+        handleDelete
     }
 });

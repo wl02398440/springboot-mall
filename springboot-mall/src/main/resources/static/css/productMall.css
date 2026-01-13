@@ -417,6 +417,19 @@ header {
     font-size: 16px;
     color: #212529;
 }
+.count-sub {
+    position: relative;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    bottom: 1.5px;
+}
+.count-plus {
+    position: relative;
+    padding-bottom: 2px;
+    bottom: 1.5px;
+}
+
 /* 設定輸入框的樣式 */
 .count-input {
     width: 40px;

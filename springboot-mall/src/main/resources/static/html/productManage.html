@@ -29,9 +29,11 @@
         <div class="search-bar">
             <select v-model="selectedCategory" class="search-input">
                 <option value="">所有種類</option>
-                <option value="FOOD">FOOD</option>
-                <option value="CAR">CAR</option>
-                <option value="BOOK">BOOK</option>
+                <option value="BOOK">書籍</option>
+                <option value="FURNITURE">家具</option>
+                <option value="ELECTRONICS">電器/3C</option>
+                <option value="FOOD">食物</option>
+                <option value="GROCERY">日用品</option>
             </select>
             <input
                     type="text"
@@ -87,7 +89,7 @@
                 </div>
 
                 <input type="file"
-                       ref="fileInputs"
+                       :id="'file-upload-' + index"
                        style="display: none"
                        accept="image/*"
                        @change="handleFileUpload($event, product)">
@@ -109,9 +111,11 @@
 
             <div class="col-category">
                 <select v-model="product.category" class="input-edit">
-                    <option value="FOOD">FOOD</option>
-                    <option value="CAR">CAR</option>
-                    <option value="BOOK">BOOK</option>
+                    <option value="BOOK">書籍</option>
+                    <option value="FURNITURE">家具</option>
+                    <option value="ELECTRONICS">電器/3C</option>
+                    <option value="FOOD">食物</option>
+                    <option value="GROCERY">日用品</option>
                 </select>
             </div>
 

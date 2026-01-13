@@ -54,7 +54,7 @@ function addProduct() {
         imageUrl: '',
         price: 0,
         stock: 0,
-        category: 'FOOD',
+        category: '',
         isNew: true
     };
     // 加在上面
@@ -63,7 +63,7 @@ function addProduct() {
 
 // 儲存商品
 function saveProduct(product, index) {
-    if (!product.productName || !product.price || !product.stock) {
+    if (!product.productName || !product.price || product.stock === '') {
         Swal.fire('欄位錯誤', '請輸入商品名稱、價格、庫存', 'warning');
         return;
     }
@@ -149,7 +149,10 @@ function deleteProduct(product, index) {
 
 // ...檔案上傳
 function triggerFileUpload(index) {
-    this.$refs.fileInputs[index].click();
+    const fileInput = document.getElementById('file-upload-' + index);
+    if (fileInput) {
+        fileInput.click();
+    }
 }
 
 // 處理檔案上傳
@@ -173,7 +176,9 @@ function handleFileUpload(event, product) {
     })
     .then(res => res.text()) // 後端回傳圖片網址字串
     .then(imageUrl => {
-        product.imageUrl = imageUrl; // 將回傳的網址填入欄位
+        product.imageUrl = imageUrl;// 將回傳的網址填入欄位
+        console.log("選取的網址///:", imageUrl);
+
     });
 }
 

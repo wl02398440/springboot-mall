@@ -74,6 +74,165 @@ header {
     font-weight: 600;
 }
 
+/* 購物車 */
+.cart-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0;
+    margin-right: 20px;
+}
+
+.cart-icon {
+    font-size: 26px;
+    cursor: pointer;
+    position: relative;
+}
+.cart-icon:hover {
+    color: #887538;
+}
+
+/* 購物車數量 */
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #eebb1c;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+/* --- 下拉選單 (Mini Cart) --- */
+.mini-cart-dropdown {
+    position: absolute;
+    top: 100%;
+    right: -10px;
+    width: 340px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 999;
+
+    /* 預設隱藏 */
+    display: none;
+    cursor: default;
+    border: 1px solid #e0e0e0;
+}
+
+.cart-wrapper:hover .mini-cart-dropdown {
+    display: block;
+    animation: fadeIn 0.2s ease-in;
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 下拉選單內容樣式 --- */
+.empty-cart {
+    padding: 40px;
+    text-align: center;
+    color: #888;
+}
+
+.mini-list {
+    max-height: 280px;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mini-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    transition: 0.2s;
+}
+.mini-item:hover {
+    background-color: #f8f8f8;
+}
+
+.item-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    margin-right: 10px;
+}
+
+.item-info {
+    flex: 1; /* 佔滿剩餘空間 */
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.item-name {
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 太長顯示... */
+    margin-bottom: 4px;
+}
+
+.item-price {
+    color: #eebb1c;
+    font-size: 14px;
+}
+
+.item-count {
+    font-size: 16px;
+    color: #666;
+    margin-left: 10px;
+}
+
+/* 刪除 */
+.delete-btn {
+    margin-left: 15px;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    color: #ee4d2d;
+    transform: scale(1.2);
+}
+
+.mini-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+.total-text {
+    font-size: 16px;
+    color: #666;
+}
+
+.btn-checkout {
+    background-color: #eebb1c;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn-checkout:hover {
+    background-color: #e3b00d;
+}
+
 .btn {
     padding: 8px 20px;
     border: 1px solid #333;

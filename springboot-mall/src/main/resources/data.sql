@@ -1,59 +1,145 @@
 -- product
 
--- ==========================================
--- 新增書籍 (BOOK) - 10筆 (使用 Unsplash 真實圖片)
--- ==========================================
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Java 程式設計寶典', 'BOOK', 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=600&q=80', 680, 50, '適合初學者的 Java 入門書，涵蓋 Spring Boot 基礎。', '2023-01-10 10:00:00', '2023-01-10 10:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Vue.js 前端開發實戰', 'BOOK', 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80', 550, 30, '掌握 Vue 3 核心技術，輕鬆打造響應式網頁。', '2023-01-12 11:30:00', '2023-01-12 11:30:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('原子習慣', 'BOOK', 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80', 350, 200, '每天進步 1%，一年強大 37 倍的複利效應。', '2023-02-01 09:00:00', '2023-02-01 09:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('被討厭的勇氣', 'BOOK', 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80', 300, 150, '阿德勒心理學，自我啟發的經典之作。', '2023-02-05 14:20:00', '2023-02-05 14:20:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('富爸爸，窮爸爸', 'BOOK', 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80', 320, 80, '改變你對金錢的觀念，邁向財務自由。', '2023-03-10 16:00:00', '2023-03-10 16:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('哈利波特：神秘的魔法石', 'BOOK', 'https://images.unsplash.com/photo-1618666012174-83b441c0bc76?auto=format&fit=crop&w=600&q=80', 450, 60, 'J.K.羅琳經典奇幻小說系列第一集。', '2023-04-01 10:00:00', '2023-04-01 10:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('小王子', 'BOOK', 'https://images.unsplash.com/photo-1633477189729-9290b3261d0a?auto=format&fit=crop&w=600&q=80', 250, 100, '獻給長大後的大人，找回純真的感動。', '2023-04-15 13:45:00', '2023-04-15 13:45:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('人類大歷史', 'BOOK', 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=600&q=80', 520, 40, '從採集到現代，剖析人類歷史的重大進程。', '2023-05-20 09:30:00', '2023-05-20 09:30:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('演算法圖鑑', 'BOOK', 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80', 480, 25, '用圖解方式輕鬆學習資料結構與演算法。', '2023-06-01 11:00:00', '2023-06-01 11:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('投資金律', 'BOOK', 'https://images.unsplash.com/photo-1611974765270-ca1258822981?auto=format&fit=crop&w=600&q=80', 420, 35, '建立正確的長期投資觀念與資產配置。', '2023-06-15 15:30:00', '2023-06-15 15:30:00');
--- ==========================================
--- 新增食物 (FOOD) - 5筆 (使用 Unsplash 真實圖片)
--- ==========================================
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('澳洲 M9 和牛牛排', 'FOOD', 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=600&q=80', 2500, 10, '頂級大理石紋油花，入口即化。', '2023-07-01 17:00:00', '2023-07-01 17:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('大湖新鮮草莓 (一籃)', 'FOOD', 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80', 350, 50, '冬季限定，酸甜好滋味。', '2023-07-05 08:00:00', '2023-07-05 08:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('北海道特選鮮乳', 'FOOD', 'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=600&q=80', 180, 60, '濃郁香醇，來自日本北國的純淨乳源。', '2023-07-10 09:00:00', '2023-07-10 09:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('有機雞蛋 (10入)', 'FOOD', 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=600&q=80', 120, 100, '人道飼養，健康無抗生素。', '2023-07-12 10:30:00', '2023-07-12 10:30:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('屏東金鑽鳳梨', 'FOOD', 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=600&q=80', 80, 40, '果肉細緻，甜度高不咬舌。', '2023-07-15 11:00:00', '2023-07-15 11:00:00');
--- ==========================================
--- 新增汽車 (CAR) - 5筆 (使用 Unsplash 真實圖片)
--- ==========================================
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Porsche 911', 'CAR', 'https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&w=600&q=80', 6500000, 1, '經典跑車代名詞，水平對臥引擎。', '2023-08-01 14:00:00', '2023-08-01 14:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Ferrari 488 GTB', 'CAR', 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80', 13000000, 1, '義大利紅鬃烈馬，V8 渦輪增壓。', '2023-08-05 16:30:00', '2023-08-05 16:30:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Honda CR-V', 'CAR', 'https://images.unsplash.com/photo-1568844293986-8d04aad2b303?auto=format&fit=crop&w=600&q=80', 950000, 20, '家庭休旅首選，空間大省油。', '2023-08-10 09:00:00', '2023-08-10 09:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Ford Kuga', 'CAR', 'https://images.unsplash.com/photo-1551830447-45ea720087f4?auto=format&fit=crop&w=600&q=80', 900000, 15, '歐系底盤，操控性佳的運動休旅。', '2023-08-12 10:00:00', '2023-08-12 10:00:00');
-INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date)
-VALUES ('Lamborghini Aventador', 'CAR', 'https://images.unsplash.com/photo-1544605995-285dc2515b22?auto=format&fit=crop&w=600&q=80', 27000000, 0, '極致超跑，V12 自然進氣引擎 (缺貨中)。', '2023-08-20 18:00:00', '2023-08-20 18:00:00');
+INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date) VALUES
 
+-- ==========================================
+-- 1. 書籍 (Books)
+-- ==========================================
+('Java編程思想', 'BOOK', 'http://localhost:8080/images/2.jpg', 800, 50, '深入理解Java核心機制的必讀經典。', '2024-01-15 10:30:00', '2024-02-20 14:00:00'),
+('Spring Boot實戰', 'BOOK', 'http://localhost:8080/images/3.jpg', 650, 30, '快速上手Spring Boot開發微服務。', '2024-03-10 09:15:00', '2024-03-12 11:20:00'),
+('Vue.js前端開發', 'BOOK', 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80', 580, 45, '現代化前端框架Vue.js全方位教學。', '2024-02-05 16:45:00', '2024-02-06 09:30:00'),
+('演算法圖鑑', 'BOOK', 'http://localhost:8080/images/4.jpg', 420, 60, '用圖解方式輕鬆學習演算法。', '2024-04-22 13:20:00', '2024-05-01 10:00:00'),
+('哈利波特：神秘的魔法石', 'BOOK', 'http://localhost:8080/images/5.jpg', 350, 100, 'J.K.羅琳經典奇幻小說第一集。', '2024-01-08 11:00:00', '2024-01-10 15:30:00'),
+('原子習慣', 'BOOK', 'http://localhost:8080/images/6.jpg', 380, 200, '細微改變帶來巨大成就的實證法則。', '2024-05-15 08:30:00', '2024-05-20 18:45:00'),
+('富爸爸，窮爸爸', 'BOOK', 'http://localhost:8080/images/7.jpg', 400, 150, '改變你對金錢看法的理財聖經。', '2024-03-20 14:10:00', '2024-04-05 16:20:00'),
+('被討厭的勇氣', 'BOOK', 'http://localhost:8080/images/8.jpg', 320, 80, '阿德勒心理學，自我啟發之父的教導。', '2024-06-10 10:05:00', '2024-06-12 12:00:00'),
+('三體', 'BOOK', 'http://localhost:8080/images/9.jpg', 450, 40, '劉慈欣震撼世界的科幻鉅作。', '2024-02-28 09:00:00', '2024-03-01 11:15:00'),
+('人類大歷史', 'BOOK', 'http://localhost:8080/images/10.jpg', 550, 35, '從野獸到扮演上帝，人類歷史的宏觀視角。', '2024-01-25 15:40:00', '2024-01-26 09:50:00'),
+('深入淺出設計模式', 'BOOK', 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', 720, 25, 'Head First系列，輕鬆搞懂Design Patterns。', '2024-04-10 13:00:00', '2024-04-15 14:30:00'),
+('Clean Code', 'BOOK', 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80', 850, 30, '軟體工程師必讀，代碼整潔之道。', '2024-05-05 11:20:00', '2024-05-08 16:00:00'),
+('重構：改善既有程式的設計', 'BOOK', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80', 900, 20, 'Martin Fowler經典之作。', '2024-03-15 09:45:00', '2024-03-18 10:10:00'),
+('高效能人士的七個習慣', 'BOOK', 'http://localhost:8080/images/11.jpg', 360, 90, '提升個人效能的經典法則。', '2024-02-14 19:00:00', '2024-02-15 08:30:00'),
+('百年孤寂', 'BOOK', 'http://localhost:8080/images/12.jpg', 480, 50, '魔幻寫實主義文學代表作。', '2024-01-30 14:20:00', '2024-02-01 15:45:00'),
+('小王子', 'BOOK', 'http://localhost:8080/images/13.jpg', 250, 300, '獻給所有大人的童話故事。', '2024-06-20 10:10:00', '2024-06-21 11:30:00'),
+('解憂雜貨店', 'BOOK', 'http://localhost:8080/images/14.jpg', 340, 120, '東野圭吾最感人的奇幻推理小說。', '2024-04-05 16:50:00', '2024-04-08 09:20:00'),
+('金庸全集', 'BOOK', 'http://localhost:8080/images/15.jpg', 5000, 10, '武俠小說泰斗金庸全套收藏版。', '2024-05-25 12:00:00', '2024-05-26 13:40:00'),
+('快思慢想', 'BOOK', 'http://localhost:8080/images/16.jpg', 520, 40, '諾貝爾經濟學獎得主剖析大腦運作。', '2024-03-08 08:00:00', '2024-03-10 10:30:00'),
+('投資最重要的事', 'BOOK', 'http://localhost:8080/images/17.jpg', 420, 70, '華爾街大師霍華·馬克斯的投資備忘錄。', '2024-02-18 15:15:00', '2024-02-20 17:00:00'),
+
+-- ==========================================
+-- 2. 家具 (Furniture)
+-- ==========================================
+('北歐風雙人沙發', 'FURNITURE', 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80', 12000, 10, '簡約設計，適合小家庭客廳。', '2024-01-05 10:00:00', '2024-01-10 14:00:00'),
+('實木餐桌', 'FURNITURE', 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=80', 8500, 15, '橡木材質，堅固耐用。', '2024-02-12 11:30:00', '2024-02-15 16:20:00'),
+('人體工學椅', 'FURNITURE', 'https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&w=800&q=80', 6800, 50, '透氣網布，保護您的脊椎。', '2024-03-20 09:45:00', '2024-03-22 10:50:00'),
+('雙人加大床架', 'FURNITURE', 'http://localhost:8080/images/18.jpg', 15000, 5, '穩固靜音設計，附收納抽屜。', '2024-04-18 14:20:00', '2024-04-20 15:30:00'),
+('獨立筒床墊', 'FURNITURE', 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80', 18000, 8, '五星級飯店睡眠體驗。', '2024-05-10 13:00:00', '2024-05-12 09:10:00'),
+('簡約床頭櫃', 'FURNITURE', 'http://localhost:8080/images/19.jpg', 2500, 30, '雙層抽屜，收納方便。', '2024-01-22 16:40:00', '2024-01-25 11:00:00'),
+('工業風書架', 'FURNITURE', 'https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=800&q=80', 3200, 20, '鐵木混合設計，風格獨特。', '2024-06-05 10:15:00', '2024-06-08 14:45:00'),
+('升降電腦桌', 'FURNITURE', 'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=800&q=80', 9900, 12, '電動升降，站坐交替工作更健康。', '2024-02-28 08:50:00', '2024-03-01 12:00:00'),
+('懶人骨頭沙發', 'FURNITURE', 'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=80', 1500, 60, '隨意變形，極致放鬆。', '2024-04-02 15:10:00', '2024-04-05 16:30:00'),
+('穿衣鏡', 'FURNITURE', 'http://localhost:8080/images/20.jpg', 990, 40, '全身鏡，簡約邊框。', '2024-03-15 11:20:00', '2024-03-18 13:40:00'),
+('鞋櫃', 'FURNITURE', 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80', 2800, 25, '透氣設計，可放20雙鞋。', '2024-01-18 09:30:00', '2024-01-20 10:00:00'),
+('電視櫃', 'FURNITURE', 'http://localhost:8080/images/21.jpg', 4500, 15, '現代風格，多功能收納。', '2024-05-22 14:50:00', '2024-05-25 15:10:00'),
+('衣櫃', 'FURNITURE', 'https://images.unsplash.com/photo-1616464916356-3a777b2b60b1?auto=format&fit=crop&w=800&q=80', 11000, 6, '三門大容量衣櫃。', '2024-06-15 10:00:00', '2024-06-16 11:20:00'),
+('電腦椅', 'FURNITURE', 'http://localhost:8080/images/22.jpg', 2200, 40, '高CP值辦公椅，滾輪滑順。', '2024-02-05 13:30:00', '2024-02-08 14:00:00'),
+('地毯', 'FURNITURE', 'http://localhost:8080/images/23.jpg', 1200, 50, '柔軟長毛地毯，客廳臥室皆宜。', '2024-03-10 16:15:00', '2024-03-12 17:30:00'),
+('落地燈', 'FURNITURE', 'http://localhost:8080/images/24.jpg', 1800, 35, '營造溫馨氛圍的閱讀燈。', '2024-04-25 09:10:00', '2024-04-28 10:40:00'),
+('茶几', 'FURNITURE', 'https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=800&q=80', 1600, 25, '強化玻璃桌面，時尚耐用。', '2024-01-30 15:00:00', '2024-02-02 12:20:00'),
+('化妝台', 'FURNITURE', 'http://localhost:8080/images/25.jpg', 5500, 10, '附LED化妝鏡與收納椅。', '2024-05-08 11:40:00', '2024-05-10 13:50:00'),
+('兒童書桌椅組', 'FURNITURE', 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80', 6000, 15, '可隨身高調整，陪伴孩子成長。', '2024-06-01 10:30:00', '2024-06-03 14:00:00'),
+('日式和室椅', 'FURNITURE', 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80', 1300, 45, '折疊收納，適合小空間。', '2024-02-20 09:20:00', '2024-02-22 10:10:00'),
+
+-- ==========================================
+-- 3. 電器 (Electronics)
+-- ==========================================
+
+('iPhone 15', 'ELECTRONICS', 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80', 29900, 50, 'Apple最新智慧型手機，動態島設計。', '2024-01-12 10:00:00', '2024-01-15 11:00:00'),
+('MacBook Air M2', 'ELECTRONICS', 'https://images.unsplash.com/photo-1661961110372-8a7682543120?auto=format&fit=crop&w=800&q=80', 35900, 30, '輕薄強大，全天候電池續航。', '2024-02-25 14:30:00', '2024-02-28 16:00:00'),
+('Dyson吹風機', 'ELECTRONICS', 'http://localhost:8080/images/29.jpg', 12900, 40, '快速乾髮，不傷髮質。', '2024-03-10 09:15:00', '2024-03-12 10:30:00'),
+('Switch遊戲主機', 'ELECTRONICS', 'http://localhost:8080/images/30.jpg', 8980, 100, '隨時隨地享受遊戲樂趣。', '2024-04-05 11:45:00', '2024-04-08 13:20:00'),
+('65吋4K電視', 'ELECTRONICS', 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80', 19999, 15, '超高畫質，智慧聯網功能。', '2024-05-18 15:30:00', '2024-05-20 16:50:00'),
+('掃地機器人', 'ELECTRONICS', 'http://localhost:8080/images/31.jpg', 15000, 25, '自動集塵，雷射導航。', '2024-06-12 10:00:00', '2024-06-14 11:10:00'),
+('氣炸鍋', 'ELECTRONICS', 'http://localhost:8080/images/32.jpg', 3200, 60, '健康減油料理神器。', '2024-01-20 13:40:00', '2024-01-22 14:50:00'),
+('除濕機', 'ELECTRONICS', 'http://localhost:8080/images/33.jpg', 8500, 30, '高效除濕，保持室內乾爽。', '2024-02-15 08:30:00', '2024-02-18 09:40:00'),
+('空氣清淨機', 'ELECTRONICS', 'http://localhost:8080/images/34.jpg', 6900, 40, '過濾PM2.5，守護呼吸健康。', '2024-03-25 10:20:00', '2024-03-28 12:00:00'),
+('微波爐', 'ELECTRONICS', 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80', 2500, 50, '快速加熱，多段火力調整。', '2024-04-10 16:10:00', '2024-04-12 17:30:00'),
+('變頻冰箱', 'ELECTRONICS', 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80', 28000, 10, '大容量，節能省電一級效能。', '2024-05-02 09:50:00', '2024-05-05 11:00:00'),
+('滾筒洗衣機', 'ELECTRONICS', 'https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=800&q=80', 32000, 8, '洗脫烘三合一，溫水洗淨。', '2024-06-20 14:00:00', '2024-06-22 15:45:00'),
+('電飯鍋', 'ELECTRONICS', 'http://localhost:8080/images/28.jpg', 3500, 45, 'IH大火力，米飯香Q好吃。', '2024-01-08 11:30:00', '2024-01-10 12:40:00'),
+('藍牙耳機', 'ELECTRONICS', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 4990, 120, '主動降噪，高音質體驗。', '2024-02-08 15:15:00', '2024-02-10 16:50:00'),
+('電競鍵盤', 'ELECTRONICS', 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80', 2800, 80, '機械軸承，RGB燈光效果。', '2024-03-12 10:00:00', '2024-03-15 11:20:00'),
+('無線滑鼠', 'ELECTRONICS', 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=800&q=80', 1200, 100, '人體工學設計，精準定位。', '2024-04-15 09:30:00', '2024-04-18 10:45:00'),
+('智慧手錶', 'ELECTRONICS', 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80', 8900, 60, '健康監測，運動記錄。', '2024-05-25 13:40:00', '2024-05-28 15:00:00'),
+('電風扇', 'ELECTRONICS', 'http://localhost:8080/images/27.jpg', 1500, 90, 'DC直流馬達，靜音省電。', '2024-06-05 11:00:00', '2024-06-07 13:00:00'),
+('果汁機', 'ELECTRONICS', 'https://images.unsplash.com/photo-1585237672814-8f85a8118bf6?auto=format&fit=crop&w=800&q=80', 1800, 55, '強力馬達，可打冰沙。', '2024-01-30 14:20:00', '2024-02-01 16:00:00'),
+('投影機', 'ELECTRONICS', 'http://localhost:8080/images/26.jpg', 12000, 20, '家庭劇院，支援100吋投影。', '2024-02-22 10:50:00', '2024-02-25 12:10:00'),
+
+-- ==========================================
+-- 4. 零食 (Food)
+-- ==========================================
+--     http://localhost:8080/images/3.jpg
+('原味洋芋片', 'FOOD', 'http://localhost:8080/images/35.jpg', 35, 500, '經典薄片，鹹香酥脆。', '2024-01-02 09:00:00', '2024-01-05 10:00:00'),
+('巧克力夾心餅乾', 'FOOD', 'http://localhost:8080/images/36.jpg', 45, 400, '濃郁巧克力內餡。', '2024-02-14 11:00:00', '2024-02-15 13:00:00'),
+('綜合堅果', 'FOOD', 'http://localhost:8080/images/37.jpg', 350, 200, '低溫烘焙，保留營養。', '2024-03-20 14:30:00', '2024-03-22 16:00:00'),
+('水果軟糖', 'FOOD', 'http://localhost:8080/images/38.jpg', 50, 350, '多種果汁口味，Q彈好吃。', '2024-04-05 10:20:00', '2024-04-08 11:45:00'),
+('海苔', 'FOOD', 'http://localhost:8080/images/39.jpg', 120, 250, '香脆口感，健康零嘴。', '2024-05-12 15:50:00', '2024-05-15 17:00:00'),
+('牛肉乾', 'FOOD', 'http://localhost:8080/images/40.jpg', 250, 150, '獨家滷汁，越嚼越香。', '2024-06-18 08:45:00', '2024-06-20 09:30:00'),
+('科學麵', 'FOOD', 'http://localhost:8080/images/41.jpg', 10, 1000, '童年回憶，經典脆麵 (乾燥泡麵示意圖)。', '2024-01-25 12:15:00', '2024-01-28 13:30:00'),
+('義美小泡芙', 'FOOD', 'http://localhost:8080/images/42.jpg', 32, 600, '外殼酥脆，內餡濃郁 (圓形泡芙示意圖)。', '2024-02-08 16:00:00', '2024-02-10 17:15:00'),
+('可樂果', 'FOOD', 'http://localhost:8080/images/43.jpg', 25, 500, '螺旋造型，蒜味十足 (螺旋造型餅乾示意)。', '2024-03-15 10:40:00', '2024-03-18 11:50:00'),
+('鱈魚香絲', 'FOOD', 'http://localhost:8080/images/44.jpg', 80, 300, '鮮味十足，休閒良伴。', '2024-04-22 09:10:00', '2024-04-25 10:30:00'),
+('爆米花', 'FOOD', 'http://localhost:8080/images/45.jpg', 60, 200, '焦糖口味，電影絕配。', '2024-05-30 14:00:00', '2024-06-02 15:45:00'),
+('黑巧克力', 'FOOD', 'http://localhost:8080/images/46.jpg', 120, 180, '85%可可，苦甜大人味。', '2024-01-10 11:20:00', '2024-01-12 12:40:00'),
+('蘇打餅乾', 'FOOD', 'http://localhost:8080/images/47.jpg', 40, 400, '清爽不油膩，下午茶首選。', '2024-02-25 09:30:00', '2024-02-28 10:50:00'),
+('鳳梨酥', 'FOOD', 'http://localhost:8080/images/48.jpg', 380, 100, '台灣名產，土鳳梨內餡 (糕點示意圖)。', '2024-03-05 15:00:00', '2024-03-08 16:30:00'),
+('芒果乾', 'FOOD', 'http://localhost:8080/images/49.jpg', 200, 150, '天然果乾，無添加色素。', '2024-04-12 13:10:00', '2024-04-15 14:20:00'),
+('蝦味先', 'FOOD', 'http://localhost:8080/images/50.jpg', 25, 500, '非油炸，連吃都停不下來 (條狀零食示意)。', '2024-05-08 10:15:00', '2024-05-10 11:45:00'),
+('蛋捲', 'FOOD', 'http://localhost:8080/images/51.jpg', 150, 200, '厚實口感，蛋香濃郁。', '2024-06-15 08:30:00', '2024-06-18 09:50:00'),
+('麻糬', 'FOOD', 'http://localhost:8080/images/52.jpg', 100, 120, 'Q彈外皮，花生芝麻內餡。', '2024-01-18 16:20:00', '2024-01-20 17:40:00'),
+('起司球', 'FOOD', 'http://localhost:8080/images/53.jpg', 180, 150, '整桶裝，派對必備。', '2024-02-28 12:00:00', '2024-03-02 13:30:00'),
+('魷魚絲', 'FOOD', 'http://localhost:8080/images/54.jpg', 220, 100, '碳烤風味，下酒好菜。', '2024-03-30 11:10:00', '2024-04-01 12:50:00'),
+-- ==========================================
+-- 5. 日常用品 (Grocery)
+-- ==========================================
+('抽取式衛生紙', 'GROCERY', 'http://localhost:8080/images/55.jpg', 129, 500, '100抽x12包，柔軟親膚。', '2024-01-05 09:15:00', '2024-01-08 10:00:00'),
+('洗髮精', 'GROCERY', 'http://localhost:8080/images/56.jpg', 250, 200, '去屑止癢，清爽控油。', '2024-02-12 14:00:00', '2024-02-14 15:20:00'),
+('沐浴乳', 'GROCERY', 'http://localhost:8080/images/57.jpg', 180, 200, '保濕滋潤，淡雅花香。', '2024-03-18 11:30:00', '2024-03-20 12:45:00'),
+('洗衣精', 'GROCERY', 'http://localhost:8080/images/58.jpg', 199, 150, '深層洗淨，抗菌除臭。', '2024-04-22 08:50:00', '2024-04-25 10:10:00'),
+('牙膏', 'GROCERY', 'http://localhost:8080/images/59.jpg', 89, 300, '美白護齦，口氣清新。', '2024-05-10 13:20:00', '2024-05-12 14:30:00'),
+('牙刷', 'GROCERY', 'http://localhost:8080/images/60.jpg', 45, 400, '細軟刷毛，不傷牙齦。', '2024-06-05 16:40:00', '2024-06-08 09:00:00'),
+('洗碗精', 'GROCERY', 'http://localhost:8080/images/61.jpg', 79, 250, '去油力強，溫和不咬手。', '2024-01-20 10:50:00', '2024-01-22 11:55:00'),
+('純水濕紙巾', 'GROCERY', 'http://localhost:8080/images/62.jpg', 59, 350, '無酒精香精，嬰兒可用。', '2024-02-25 15:10:00', '2024-02-28 16:30:00'),
+('毛巾', 'GROCERY', 'http://localhost:8080/images/63.jpg', 120, 200, '純棉吸水，柔軟舒適。', '2024-03-30 09:20:00', '2024-04-01 10:40:00'),
+('垃圾袋', 'GROCERY', 'http://localhost:8080/images/64.jpg', 65, 400, '強韌耐用，不易破裂。', '2024-05-15 14:00:00', '2024-05-18 15:20:00'),
+('衣架', 'GROCERY', 'http://localhost:8080/images/65.jpg', 99, 300, '防滑設計，10入一組。', '2024-06-20 11:45:00', '2024-06-22 13:00:00'),
+('芳香劑', 'GROCERY', 'http://localhost:8080/images/66.jpg', 85, 150, '去除異味，持久清香。', '2024-01-28 16:30:00', '2024-01-30 17:45:00'),
+('口罩', 'GROCERY', 'http://localhost:8080/images/67.jpg', 150, 600, '醫療級三層防護，透氣舒適。', '2024-02-15 10:15:00', '2024-02-18 11:20:00'),
+('酒精噴霧', 'GROCERY', 'http://localhost:8080/images/68.jpg', 75, 250, '75%酒精，隨身清潔消毒。', '2024-03-10 13:00:00', '2024-03-12 14:10:00'),
+('洗手乳', 'GROCERY', 'http://localhost:8080/images/69.jpg', 95, 200, '泡沫綿密，抗菌洗手。', '2024-04-05 08:40:00', '2024-04-08 09:50:00'),
+('保鮮膜', 'GROCERY', 'http://localhost:8080/images/70.jpg', 60, 300, '耐熱微波，鎖住新鮮。', '2024-05-20 15:30:00', '2024-05-22 16:40:00'),
+('菜瓜布', 'GROCERY', 'http://localhost:8080/images/71.jpg', 35, 400, '雙面設計，強力去污。', '2024-06-12 11:00:00', '2024-06-14 12:15:00'),
+('殺蟲劑', 'GROCERY', 'http://localhost:8080/images/72.jpg', 110, 100, '快速消滅蚊蟲蟑螂。', '2024-01-15 14:20:00', '2024-01-18 15:30:00'),
+('電池', 'GROCERY', 'http://localhost:8080/images/73.jpg', 150, 250, '鹼性電池，電力持久。', '2024-02-08 09:45:00', '2024-02-10 11:00:00'),
+('拖把', 'GROCERY', 'http://localhost:8080/images/74.jpg', 350, 80, '免手洗設計，輕鬆拖地。', '2024-03-22 12:30:00', '2024-03-25 13:40:00');
 
 -- user
 INSERT INTO users (email, password, created_date, last_modified_date) VALUES ('admin@gmail.com', '698d51a19d8a121ce581499d7b701668', '2022-06-30 10:30:00', '2022-06-30 10:30:00');
 INSERT INTO users (email, password, created_date, last_modified_date) VALUES ('user1@gmail.com', '698d51a19d8a121ce581499d7b701668', '2022-06-30 10:40:00', '2022-06-30 10:40:00');
 
--- order, order_item
+-- orders
+insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (4, 'user4', 300, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已取消');
+insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (5, 'user5', 600, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已出貨');
+insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (6, 'user6', 600, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已付款');
+--
+--
+--
+-- buy_item
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (4, 13, 1, 180, 1);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (4, 14, 1, 120, 1);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (5, 13, 2, 360, 2);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (5, 14, 2, 240, 2);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (6, 13, 2, 360, 3);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (6, 14, 2, 240, 3);
+
 

@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS order_item
 
 CREATE TABLE IF NOT EXISTS buy_item
 (
-    order_item_id INT NOT NULL,
+    order_item_id INT NOT NULL default 1,
     user_id      INT NOT NULL,
     product_id    INT NOT NULL,
     `count`      INT NOT NULL, -- 商品數量
