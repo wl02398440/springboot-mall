@@ -83,6 +83,10 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrders(OrderQueryParams orderQueryParams) {
         List<Order> orders = orderDao.getOrders(orderQueryParams);
 
+        if (orders == null || orders.isEmpty()) {
+            return null;
+        }
+
         for (Order order : orders) {
             order.setOrderItems(orderDao.getBuyItemListByOrderId(order.getOrderId()));
         }

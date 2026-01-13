@@ -16,10 +16,13 @@
     <header>
         <div class="header-left">
             <a href="home.html" class="logo">SIMPLESHOP</a>
-            <div @click="shopNow" class="nav-item">商場</div>
-            <div @click="orderUser" class="nav-item">我的訂單</div>
+            <template v-if="!isManager">
+                <div @click="shopNow" class="nav-item">商場</div>
+                <div @click="orderUser" class="nav-item">我的訂單</div>
+            </template>
 
             <template v-if="isManager">
+                <div @click="shopNow" class="nav-item">商場預覽</div>
                 <a href="productManage.html" class="nav-item">商場管理</a>
                 <a href="orderManage.html" class="nav-item">訂單管理</a>
             </template>

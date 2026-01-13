@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
         String projectPath = System.getProperty("user.dir");
 
         // 指定圖片存放的外部路徑
-        // 這會讓 http://localhost:8080/images/xxx.jpg 對應到 專案資料夾/uploads/xxx.jpg
+        // 讓 http://localhost:8080/images/xxx.jpg 對應到 專案資料夾/uploads/xxx.jpg
         String uploadPath = "file:" + projectPath + "/uploads/";
 
         registry.addResourceHandler("/images/**")

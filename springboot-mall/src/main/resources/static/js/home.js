@@ -51,17 +51,13 @@ function register() {
                 showConfirmButton: false, // 不顯示確定按鈕
                 timer: 1000
             });
-
             this.showRegister = false; // 關閉註冊視窗
-            // 清空表單
-            // this.loginForm.email = '';
-            // this.loginForm.password = '';
         })
         .catch(error => {
             // 錯誤處理
             console.error("發生錯誤:", error);
             Swal.fire({
-                icon: 'warning', // 圖示
+                icon: 'warning',
                 title: error.message,
                 showConfirmButton: true, // 不顯示確定按鈕
                 timer: 1000

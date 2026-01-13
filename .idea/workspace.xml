@@ -4,98 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="資料庫改用H2模擬資料&#10;整理小修後端程式">
-      <change afterPath="$PROJECT_DIR$/uploads/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/24.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/25.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/26.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/28.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/29.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/30.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/32.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/33.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/34.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/35.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/36.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/37.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/38.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/39.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/40.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/41.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/42.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/43.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/44.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/45.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/46.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/47.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/48.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/49.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/50.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/51.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/52.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/53.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/54.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/55.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/56.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/57.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/58.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/59.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/60.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/61.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/62.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/63.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/64.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/65.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/66.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/67.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/68.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/69.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/70.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/71.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/72.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/73.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/74.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/pom.xml" afterDir="false" />
+    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="資料庫新增order、product資料&#10;修改送信功能">
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/config/BackEndMailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/config/BackEndMailConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/constant/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/constant/ProductCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dao/impl/ProductDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/dao/impl/ProductDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/orderUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/orderUser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/productMall.css" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/productMall.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/java/com/sam/springbootmall/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/orderUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/orderUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/productManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/productManage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +238,7 @@
       <workItem from="1768209423601" duration="638000" />
       <workItem from="1768210072938" duration="280000" />
       <workItem from="1768279707396" duration="7449000" />
-      <workItem from="1768288136217" duration="4385000" />
+      <workItem from="1768288136217" duration="4961000" />
     </task>
     <task id="LOCAL-00001" summary="首頁及初步購物車">
       <option name="closed" value="true" />
@@ -364,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768208947245</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="資料庫新增order、product資料&#10;修改送信功能">
+      <option name="closed" value="true" />
+      <created>1768292614199</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1768292614199</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,6 +323,7 @@
     <MESSAGE value="購物商場管理完成&#10;新增登入驗證碼功能&#10;新增註冊寄信功能" />
     <MESSAGE value="新增訂單管理、我的訂單、付款頁面&#10;修改其餘網頁設定" />
     <MESSAGE value="資料庫改用H2模擬資料&#10;整理小修後端程式" />
-    <option name="LAST_COMMIT_MESSAGE" value="資料庫改用H2模擬資料&#10;整理小修後端程式" />
+    <MESSAGE value="資料庫新增order、product資料&#10;修改送信功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="資料庫新增order、product資料&#10;修改送信功能" />
   </component>
 </project>

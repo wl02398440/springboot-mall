@@ -18,7 +18,7 @@ public class EmailService {
     public void sendWelcomeEmail(String email) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("商場 <wl0239844@gmail.com>");
+            message.setFrom("SIMPLESHOP 極簡生活<wl0239844@gmail.com>");
             message.setTo(email);
             message.setSubject("歡迎加入 SIMPLESHOP");
 
