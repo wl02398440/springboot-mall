@@ -128,18 +128,18 @@ INSERT INTO users (email, password, created_date, last_modified_date) VALUES ('a
 INSERT INTO users (email, password, created_date, last_modified_date) VALUES ('user1@gmail.com', '698d51a19d8a121ce581499d7b701668', '2022-06-30 10:40:00', '2022-06-30 10:40:00');
 
 -- orders
-insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (4, 'user4', 300, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已取消');
-insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (5, 'user5', 600, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已出貨');
-insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (6, 'user6', 600, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已付款');
+insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (4, 'user4', 1260, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已取消');
+insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (5, 'user5', 2520, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已出貨');
+insert into orders (user_id, user_name, total_amount, created_date, last_modified_date, status) values (6, 'user6', 2520, '2022-06-02 16:51:49', '2022-06-02 16:51:49', '已付款');
 --
 --
 --
 -- buy_item
-insert into buy_item(user_id, product_id, `count`, amount, order_id) values (4, 13, 1, 180, 1);
-insert into buy_item(user_id, product_id, `count`, amount, order_id) values (4, 14, 1, 120, 1);
-insert into buy_item(user_id, product_id, `count`, amount, order_id) values (5, 13, 2, 360, 2);
-insert into buy_item(user_id, product_id, `count`, amount, order_id) values (5, 14, 2, 240, 2);
-insert into buy_item(user_id, product_id, `count`, amount, order_id) values (6, 13, 2, 360, 3);
-insert into buy_item(user_id, product_id, `count`, amount, order_id) values (6, 14, 2, 240, 3);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (4, 13, 1, 900, 1);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (4, 14, 1, 360, 1);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (5, 13, 2, 1800, 2);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (5, 14, 2, 720, 2);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (6, 13, 2, 1800, 3);
+insert into buy_item(user_id, product_id, `count`, amount, order_id) values (6, 14, 2, 720, 3);
 
 

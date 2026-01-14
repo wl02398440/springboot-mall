@@ -195,7 +195,7 @@ header {
     width: 100%;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid #eee;
 }
 
 /* 標題列 */
@@ -211,7 +211,7 @@ header {
 
 /*內容列*/
 .item_body {
-    background-color: #e7f3f9;
+    background-color: #f8f9fa;
     min-height: 100px;
 }
 

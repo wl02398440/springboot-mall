@@ -258,6 +258,7 @@ new Vue({
     data: {
         showLogin: false,
         showRegister: false,
+        showQA: false,
         loginForm: {
             email: 'admin@gmail.com',
             password: '111',
@@ -267,16 +268,12 @@ new Vue({
         // --- 輪播圖設定 ---
         currentSlide: 0,
         timer: null,
-        // 橫幅背景
+        // 圖片設定
         banners: [
-            // 第一張：模擬 "超級品牌日" 廣告
-            'http://localhost:8080/images/1.jpg',
-            // 第二張：模擬 "本日熱銷" 廣告
-            'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80',
-            // 第三張：模擬 "今日新上架" 廣告
-            'http://localhost:8080/images/1.jpg',
-            // 第四張
-            'http://localhost:8080/images/1.jpg'
+            'http://localhost:8080/images/home-1.jpg',
+            'http://localhost:8080/images/home-2.jpg',
+            'http://localhost:8080/images/home-3.jpg',
+            'http://localhost:8080/images/home-4.jpg'
         ],
         shopCart: []
     },

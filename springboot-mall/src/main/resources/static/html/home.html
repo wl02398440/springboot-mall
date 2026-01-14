@@ -109,15 +109,15 @@
             </div>
             <div class="benefit-item">
                 <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
-                <span>蝦皮優選</span>
+                <span>安心退</span>
             </div>
             <div class="benefit-item">
-                <div class="icon-circle"><i class="fas fa-tags"></i></div>
-                <span>超值優惠</span>
+                <div class="icon-circle"><i class="fas fa-globe"></i></div>
+                <span>海外直送</span>
             </div>
-            <div class="benefit-item">
+            <div class="benefit-item" @click="showQA = true">
                 <div class="icon-circle"><i class="fas fa-coins"></i></div>
-                <span>蝦幣回饋</span>
+                <span>商場Q&A(預設帳密)</span>
             </div>
         </div>
 
@@ -175,6 +175,18 @@
                     <input type="password" placeholder="再次輸入密碼" v-model="confirmPassword">
                 </div>
                 <button class="btn" style="width: 100%;" @click="register">註冊</button>
+            </div>
+        </div>
+    </transition>
+
+    <transition name="fade">
+        <div class="modal-overlay" v-if="showQA" @click.self="showQA = false">
+            <div class="modal-content">
+                <span class="close-btn" @click="showRegister = false">&times;</span>
+                <div >管理者帳號: admin@gmail.com</div>
+                <div >管理者密碼: 111</div>
+                <div >購物者帳號: user1@gmail.com</div>
+                <div >購物者密碼: 111</div>
             </div>
         </div>
     </transition>
