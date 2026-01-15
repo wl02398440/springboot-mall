@@ -121,7 +121,7 @@ header {
 
 /* --- 欄位寬度設定 --- */
 .col-id { flex: 1.5; font-weight: bold; color: #2776bb; }
-.col-user { flex: 1.5;}
+.col-user { flex: 2.3;}
 .col-price { flex: 2;}
 .col-date { flex: 2.5;}
 .col-detail { flex: 1.5; text-align: center; }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="index.html更改位置">
+    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="修改首頁預設帳號">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/orderManage.css" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/orderManage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +251,7 @@
       <workItem from="1768370342023" duration="12047000" />
       <workItem from="1768383739267" duration="2233000" />
       <workItem from="1768390220657" duration="842000" />
-      <workItem from="1768457641069" duration="2614000" />
+      <workItem from="1768457641069" duration="4652000" />
     </task>
     <task id="LOCAL-00001" summary="首頁及初步購物車">
       <option name="closed" value="true" />
@@ -330,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768458607584</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="修改首頁預設帳號">
+      <option name="closed" value="true" />
+      <created>1768461505769</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1768461505769</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,6 +381,7 @@
     <MESSAGE value="首頁設計更改" />
     <MESSAGE value="首頁名稱更改為index&#10;增加Maven Wrapper" />
     <MESSAGE value="index.html更改位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="index.html更改位置" />
+    <MESSAGE value="修改首頁預設帳號" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改首頁預設帳號" />
   </component>
 </project>
