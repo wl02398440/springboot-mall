@@ -1,39 +1,48 @@
-# 🛒 SIMPLESHOP 極簡商場 (Spring Boot + Vue)
+# 🛒 SIMPLESHOP 購物平台
 
-> 使用Spring Boot 與 Vue.js 開發的全端電商系統，強調極簡設計與流暢的使用者體驗。
+> SIMPLESHOP 是一個模擬電商運作的購物平台專案。
+> (無需安裝 MySQL 或 Maven 即可直接執行)
 
 ![Project Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Backend](https://img.shields.io/badge/backend-Spring%20Boot-green)
 ![Frontend](https://img.shields.io/badge/frontend-Vue.js-blue)
 ![Database](https://img.shields.io/badge/database-H2-orange)
 
-## 📖 專案簡介 (Introduction)
+## 🛠️ 技術架構
+* **後端**：採用 **Spring Boot** 建構 RESTful API。
+* **資料庫**：使用 **H2 In-Memory Database** 進行儲存，方便快速開發與測試。
+* **前端**：使用 **Vue.js** 打造使用者介面。
 
-SIMPLESHOP 是一個模擬電商運作的購物平台專案。後端採用 **Spring Boot** 建構 RESTful API，並使用 **H2 In-Memory Database** 進行資料儲存，方便快速開發與測試；前端使用 **Vue.js** 打造介面。
+## ✨ 主要功能
 
-專案實作了完整的商品管理流程，包含商品的 CRUD以及發送 Gmail SMTP 的郵件通知服務。
-
-## ✨ 主要功能 (Key Features)
-
-### 1. 商品管理系統 (Product Management)
+### 1. 商品管理系統
 * **商品 CRUD**：支援新增、修改、刪除與查詢商品。
-***圖片上傳優化**：實作前端圖片預覽與檔案上傳功能。
+* **圖片上傳優化**：實作前端圖片預覽與檔案上傳功能。
+
+### 2. 訂單管理系統
 * **訂單系統**：支援更改訂單狀態、查看訂單商品明細。
 * **購物系統**：模擬綠界結帳功能、商品、訂單隨結帳後同步更改。
 
-### 2. 資料庫便攜性 (H2 Database)
-* **免安裝**：使用內嵌式資料庫，專案啟動即自動建立資料庫環境。
-
-### 3. 會員與通知 (User & Notification)
+### 2. 會員管理系統
+* **郵件服務**：支援註冊、登入功能。
 * **郵件服務**：註冊成功後，自動發送通知信件。
 
-### 關鍵參數說明
-* **資料庫 (H2)**: 預設帳號 `sa`，密碼為空。
-* **商場管理者**: 預設帳號 `admin@gmail.com`，密碼`111`。
-* **商場購物者**: 預設帳號 `user1@gmail.com`，密碼`111`。
+## 🚀 快速開始
 
+本專案內建 Maven Wrapper，只需準備 JDK 17+ 環境。  
 
-### 📂 專案結構 (Project Structure)
+下載專案後在JDK17+環境執行SpringbootMallApplication (src/main/java/com.sam.springbootmall/SpringbootMallApplication)，
+
+系統啟動後，請直接開啟：http://localhost:8080
+
+**測試帳號**：網頁開啟後，登入帳號密碼預設為`user1@gmail.com`/111。
+```text
+角色	 帳號	            密碼
+管理員	 admin@gmail.com	111
+會員	 user1@gmail.com	111
+```
+
+### 📂 專案結構
 
 ```text
 com.sam.springbootmall
