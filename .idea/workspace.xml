@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="首頁名稱更改為index&#10;增加Maven Wrapper">
-      <change beforePath="$PROJECT_DIR$/.idea/springboot-mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/springboot-mall.iml" afterDir="false" />
+    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="index.html更改位置">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/shopcart.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/shopcart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +248,7 @@
       <workItem from="1768370342023" duration="12047000" />
       <workItem from="1768383739267" duration="2233000" />
       <workItem from="1768390220657" duration="842000" />
-      <workItem from="1768457641069" duration="677000" />
+      <workItem from="1768457641069" duration="2614000" />
     </task>
     <task id="LOCAL-00001" summary="首頁及初步購物車">
       <option name="closed" value="true" />
@@ -331,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768383591047</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="index.html更改位置">
+      <option name="closed" value="true" />
+      <created>1768458607584</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768458607584</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,6 +369,7 @@
     <MESSAGE value="資料庫新增order、product資料&#10;修改送信功能&#10;修改getOrders" />
     <MESSAGE value="首頁設計更改" />
     <MESSAGE value="首頁名稱更改為index&#10;增加Maven Wrapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="首頁名稱更改為index&#10;增加Maven Wrapper" />
+    <MESSAGE value="index.html更改位置" />
+    <option name="LAST_COMMIT_MESSAGE" value="index.html更改位置" />
   </component>
 </project>

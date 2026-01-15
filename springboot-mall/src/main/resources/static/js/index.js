@@ -260,7 +260,7 @@ new Vue({
         showRegister: false,
         showQA: false,
         loginForm: {
-            email: 'admin@gmail.com',
+            email: 'user@gmail.com',
             password: '111',
             captcha: ''
         },
