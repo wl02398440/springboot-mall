@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="首頁設計更改">
+    <list default="true" id="d428b058-4315-42bf-b920-7d20cb7129ed" name="Changes" comment="首頁名稱更改為index&#10;增加Maven Wrapper">
+      <change beforePath="$PROJECT_DIR$/.idea/springboot-mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/springboot-mall.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/orderUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productMall.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/productManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/shopcart.html" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/html/shopcart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mall/src/main/resources/static/js/payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,40 +63,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.SpringbootMallApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JUnit.OrderControllerTest.executor": "Run",
-    "JUnit.ProductControllerTest.executor": "Run",
-    "JUnit.ProductControllerTest.getProducts.executor": "Run",
-    "JUnit.ProductControllerTest.getProducts_pagination.executor": "Run",
-    "JUnit.ProductControllerTest.getProducts_sorting.executor": "Run",
-    "JUnit.UserControllerTest.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.SpringbootMallApplication (1).executor": "Run",
-    "Spring Boot.SpringbootMallApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/springboot-mall/uploads",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SpringbootMallApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JUnit.OrderControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.getProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.getProducts_pagination.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerTest.getProducts_sorting.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.springboot-mall [wrapper:wrapper].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SpringbootMallApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.SpringbootMallApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/aaa/springboot-mall&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\springboot-mall\uploads" />
@@ -106,11 +110,11 @@
       <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\aaa\springboot-mall\springboot-mall\src\main\resources\static" />
+      <recent name="C:\Users\user\Desktop\aaa\springboot-mall\springboot-mall" />
+      <recent name="C:\Users\user\Desktop\aaa\springboot-mall" />
       <recent name="C:\Users\user\Desktop\springboot-mall\uploads" />
       <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\java\com\sam\springbootmall\dao\impl" />
-      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources" />
-      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\java" />
-      <recent name="C:\Users\user\Desktop\springboot-mall\springboot-mall\src\main\resources\static\html\test" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sam.springbootmall" />
@@ -118,6 +122,11 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sam.springbootmall.dto" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn wrapper:wrapper" />
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringbootMallApplication">
     <configuration name="SpringbootMallApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -245,7 +254,10 @@
       <workItem from="1768279707396" duration="7449000" />
       <workItem from="1768288136217" duration="6131000" />
       <workItem from="1768369351873" duration="634000" />
-      <workItem from="1768370342023" duration="11712000" />
+      <workItem from="1768370342023" duration="12047000" />
+      <workItem from="1768383739267" duration="2233000" />
+      <workItem from="1768390220657" duration="842000" />
+      <workItem from="1768457641069" duration="677000" />
     </task>
     <task id="LOCAL-00001" summary="首頁及初步購物車">
       <option name="closed" value="true" />
@@ -311,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768380864183</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="首頁名稱更改為index&#10;增加Maven Wrapper">
+      <option name="closed" value="true" />
+      <created>1768383591047</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1768383591047</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,6 +369,7 @@
     <MESSAGE value="資料庫新增order、product資料&#10;修改送信功能" />
     <MESSAGE value="資料庫新增order、product資料&#10;修改送信功能&#10;修改getOrders" />
     <MESSAGE value="首頁設計更改" />
-    <option name="LAST_COMMIT_MESSAGE" value="首頁設計更改" />
+    <MESSAGE value="首頁名稱更改為index&#10;增加Maven Wrapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="首頁名稱更改為index&#10;增加Maven Wrapper" />
   </component>
 </project>

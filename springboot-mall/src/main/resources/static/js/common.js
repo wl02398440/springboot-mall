@@ -32,7 +32,7 @@ const authMixin = {
                 showConfirmButton: false, // 不顯示確定按鈕
                 timer: 1000
             }).then(() => {
-                location.href = '../html/index.html';
+                location.href = '../index.html';
             });
         },
         //購物車

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -23,8 +23,8 @@
 
             <template v-if="isManager">
                 <div @click="shopNow" class="nav-item">商場預覽</div>
-                <a href="productManage.html" class="nav-item">商場管理</a>
-                <a href="orderManage.html" class="nav-item">訂單管理</a>
+                <a href="html/productManage.html" class="nav-item">商場管理</a>
+                <a href="html/orderManage.html" class="nav-item">訂單管理</a>
             </template>
 
         </div>
@@ -182,7 +182,7 @@
     <transition name="fade">
         <div class="modal-overlay" v-if="showQA" @click.self="showQA = false">
             <div class="modal-content">
-                <span class="close-btn" @click="showRegister = false">&times;</span>
+                <span class="close-btn" @click="showQA = false">&times;</span>
                 <div >管理者帳號: admin@gmail.com</div>
                 <div >管理者密碼: 111</div>
                 <div >購物者帳號: user1@gmail.com</div>
@@ -192,7 +192,7 @@
     </transition>
 
 </div>
-<script src="../js/common.js"></script>
-<script src="../js/index.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

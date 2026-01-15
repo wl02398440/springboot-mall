@@ -43,7 +43,7 @@ function confirmPayment(orderId) {
                         text: '感謝您的購買，商品將盡快寄出',
                         confirmButtonText: '回到商場'
                     }).then(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = '../index.html';
                     });
                 } else {
                     return response.json().then(errorBody => {
